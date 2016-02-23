@@ -125,9 +125,22 @@ $goleadores7c = $serviciosFUNC->Amarillas(3,21);
     <script src="../bootstrap/js/bootstrap.min.js"></script>
 
 	<style type="text/css">
+		.table3 thead th{
+			padding:6px 10px;
+			text-transform:uppercase;
+			color:#444;
+			font-weight:bold;
+			text-shadow:1px 1px 1px #fff;
+			border-bottom:5px solid #444;
+			background-color: #87EE75;
+		}
 		
-  
-		
+		.table3 thead th:empty{
+			background:transparent;
+			border:none;
+			
+		}
+	
 	</style>
     
    

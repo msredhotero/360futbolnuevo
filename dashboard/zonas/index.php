@@ -28,8 +28,8 @@ $resMenu = $serviciosHTML->menu(utf8_encode($_SESSION['nombre_predio']),"Zonas",
 
 /////////////////////// Opciones de la pagina  ////////////////////
 
-$lblTitulosingular	= "Zona";
-$lblTituloplural	= "Zonas";
+$lblTitulosingular	= "Categoria";
+$lblTituloplural	= "Categorias";
 
 /////////////////////// Fin de las opciones /////////////////////
 
@@ -86,7 +86,7 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 
 
-<title>Gestión: Predio 98</title>
+<title>Gestión: Tres Sesenta Fútbol</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -142,7 +142,7 @@ if ($_SESSION['refroll_predio'] != 1) {
         	<div class="row" align="center">
             	<ul class="list-inline">
                 	<li>
-                    	Seleccione una zona para cargar datos de los jugadores y los equipos
+                    	Seleccione una Categoria para cargar datos de los jugadores y los equipos
                     </li>
                 </ul>
             </div>

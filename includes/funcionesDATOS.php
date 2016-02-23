@@ -63,23 +63,38 @@ class ServiciosDatos {
 				        inner 
 				        join dbgrupos g
 				        on g.idgrupo = tge.refgrupo
-				        where tge.idtorneoge = fi.reftorneoge_a and g.idgrupo=".$idzona." and tp.idtipotorneo = ".$idtorneo.") as equipoa,
+				        where tge.idtorneoge = fi.reftorneoge_a 
+				        	  and g.idgrupo=".$idzona." 
+				        	  and tp.idtipotorneo = ".$idtorneo.") as equipoa,
 				
 				(case when fi.resultado_a is null then (select
-												(case when sum(gg.goles) is null then (case when fi.chequeado = 1 then 0 else null end) else sum(gg.goles) end)
-												from		tbgoleadores gg
-												where gg.reffixture = fi.idfixture and gg.refequipo = (select tge.refequipo 
-																										from dbtorneoge tge
-																										inner 
-																										join dbtorneos t
-																										on tge.reftorneo = t.idtorneo and t.activo = true
-																										inner 
-																										join dbequipos e
-																										on e.idequipo = tge.refequipo
-																										inner 
-																										join dbgrupos g
-																										on g.idgrupo = tge.refgrupo
-																										where tge.idtorneoge = fi.reftorneoge_a))
+					(case when sum(gg.goles) is null 
+						then (case when fi.chequeado = 1 then 0 else null end) 
+						else sum(gg.goles) - (select coalesce(sum(aaa.arquero),0) from tbamonestados aaa where aaa.reffixture = fi.idfixture
+							and aaa.refequipo = (select 
+								tge.refequipo
+							from
+								dbtorneoge tge
+							inner join dbtorneos t ON tge.reftorneo = t.idtorneo
+								and t.activo = true
+							inner join dbequipos e ON e.idequipo = tge.refequipo
+							inner join dbgrupos g ON g.idgrupo = tge.refgrupo
+							where
+								tge.idtorneoge = fi.reftorneoge_a))
+							end)
+					from		tbgoleadores gg
+					where gg.reffixture = fi.idfixture and gg.refequipo = (select tge.refequipo 
+							from dbtorneoge tge
+							inner 
+							join dbtorneos t
+							on tge.reftorneo = t.idtorneo and t.activo = true
+							inner 
+							join dbequipos e
+							on e.idequipo = tge.refequipo
+							inner 
+							join dbgrupos g
+							on g.idgrupo = tge.refgrupo
+							where tge.idtorneoge = fi.reftorneoge_a))
 				else fi.resultado_a end) as resultadoa,
 				
 				(select e.idequipo 
@@ -103,9 +118,22 @@ class ServiciosDatos {
 				        where tge.idtorneoge = fi.reftorneoge_b and g.idgrupo=".$idzona." and tp.idtipotorneo = ".$idtorneo.") as equipob,
 				
 				(case when fi.resultado_b is null then (select
-															(case when sum(gg.goles) is null then (case when fi.chequeado = 1 then 0 else null end) else sum(gg.goles) end)
-															from		tbgoleadores gg
-															where gg.reffixture = fi.idfixture and gg.refequipo = (select tge.refequipo 
+								(case when sum(gg.goles) is null 
+									then (case when fi.chequeado = 1 then 0 else null end) 
+									else sum(gg.goles) - (select coalesce(sum(aaa.arquero),0) from tbamonestados aaa where aaa.reffixture = fi.idfixture
+									and aaa.refequipo = (select 
+										tge.refequipo
+									from
+										dbtorneoge tge
+									inner join dbtorneos t ON tge.reftorneo = t.idtorneo
+										and t.activo = true
+									inner join dbequipos e ON e.idequipo = tge.refequipo
+									inner join dbgrupos g ON g.idgrupo = tge.refgrupo
+									where
+										tge.idtorneoge = fi.reftorneoge_b))
+								end)
+							from		tbgoleadores gg
+							where gg.reffixture = fi.idfixture and gg.refequipo = (select tge.refequipo 
 						from dbtorneoge tge
 						inner 
 						join dbtorneos t
@@ -204,7 +232,13 @@ class ServiciosDatos {
 			fix.golesafavor,
 			(case when rr.idreemplazo is null then fix.golesencontra + COALESCE(rrr.golesencontra,0) else fix.golesencontra + rr.golesencontra end) as golesencontra,
 			fix.golesafavor - (case when rr.idreemplazo is null then fix.golesencontra + COALESCE(rrr.golesencontra,0) else fix.golesencontra + rr.golesencontra end) as diferencia,
-			(case when rr.idreemplazo is null then fix.pts + COALESCE(rrr.puntos,0) else fix.pts + rr.puntos end) as pts,
+			((case when rr.idreemplazo is null then fix.pts + COALESCE(rrr.puntos,0) else fix.pts + rr.puntos end)
+			-
+			COALESCE((case 	when fix.puntos >= 15 and fix.puntos< 20 then 1
+					when fix.puntos >= 20 and fix.puntos < 25 then 2
+					when fix.puntos >= 25 then 3
+			end),0)
+			) + fix.bonus as pts,
 			fix.idequipo,
 			fix.puntos,
 			fix.equipoactivo,
@@ -216,6 +250,7 @@ class ServiciosDatos {
 			coalesce(aaa.amarillas,0) as amarillas,
 			(case when rr.idreemplazo is null then 0 else 1 end) as reemplzado,
 (case when rrr.idreemplazo is null then 0 else 1 end) as volvio,
+				fix.bonus,
 	(case
         when rv.idreemplazovolvio is null then 0
         else 1
@@ -236,7 +271,7 @@ class ServiciosDatos {
 		        r.idequipo,
 				fp.puntos,
 				(case when r.equipoactivo = 0 then false else true end) as equipoactivo,
-		r.idtorneo
+		r.idtorneo, sum(r.bonus) as bonus
 		
 				from (
 				SELECT
@@ -247,25 +282,51 @@ class ServiciosDatos {
 				f.tipofecha,
 				fi.hora,
 				(case when fi.resultado_a is null then (select
-												(case when sum(gg.goles) is null then (case when fi.chequeado = 1 then 0 else null end) else sum(gg.goles) end)
-												from		tbgoleadores gg
-												where gg.reffixture = fi.idfixture and gg.refequipo = (select tge.refequipo 
-																										from dbtorneoge tge
-																										inner 
-																										join dbtorneos t
-																										on tge.reftorneo = t.idtorneo and t.activo = true
-																										inner 
-																										join dbequipos e
-																										on e.idequipo = tge.refequipo
-																										inner 
-																										join dbgrupos g
-																										on g.idgrupo = tge.refgrupo
-																										where tge.idtorneoge = fi.reftorneoge_a))
+							(case when sum(gg.goles) is null 
+								then (case when fi.chequeado = 1 then 0 else null end) 
+								else sum(gg.goles) - (select coalesce(sum(aaa.arquero),0) from tbamonestados aaa where aaa.reffixture = fi.idfixture
+								and aaa.refequipo = (select 
+									tge.refequipo
+								from
+									dbtorneoge tge
+								inner join dbtorneos t ON tge.reftorneo = t.idtorneo
+									and t.activo = true
+								inner join dbequipos e ON e.idequipo = tge.refequipo
+								inner join dbgrupos g ON g.idgrupo = tge.refgrupo
+								where
+									tge.idtorneoge = fi.reftorneoge_a))
+							end)
+						from		tbgoleadores gg
+						where gg.reffixture = fi.idfixture and gg.refequipo = (select tge.refequipo 
+								from dbtorneoge tge
+								inner 
+								join dbtorneos t
+								on tge.reftorneo = t.idtorneo and t.activo = true
+								inner 
+								join dbequipos e
+								on e.idequipo = tge.refequipo
+								inner 
+								join dbgrupos g
+								on g.idgrupo = tge.refgrupo
+								where tge.idtorneoge = fi.reftorneoge_a))
 				else fi.resultado_a end) as resultado_a,
 				(case when fi.resultado_b is null then (select
-															(case when sum(gg.goles) is null then (case when fi.chequeado = 1 then 0 else null end) else sum(gg.goles) end)
-															from		tbgoleadores gg
-															where gg.reffixture = fi.idfixture and gg.refequipo = (select tge.refequipo 
+									(case when sum(gg.goles) is null 
+										then (case when fi.chequeado = 1 then 0 else null end) 
+										else sum(gg.goles) - (select coalesce(sum(aaa.arquero),0) from tbamonestados aaa where aaa.reffixture = fi.idfixture
+										and aaa.refequipo = (select 
+											tge.refequipo
+										from
+											dbtorneoge tge
+										inner join dbtorneos t ON tge.reftorneo = t.idtorneo
+											and t.activo = true
+										inner join dbequipos e ON e.idequipo = tge.refequipo
+										inner join dbgrupos g ON g.idgrupo = tge.refgrupo
+										where
+											tge.idtorneoge = fi.reftorneoge_b))
+									end)
+								from		tbgoleadores gg
+								where gg.reffixture = fi.idfixture and gg.refequipo = (select tge.refequipo 
 						from dbtorneoge tge
 						inner 
 						join dbtorneos t
@@ -280,7 +341,8 @@ class ServiciosDatos {
 							else fi.resultado_b end) as resultado_b,
 				fi.reffecha,
 				tge.refgrupo,
-				tge.activo as equipoactivo
+				tge.activo as equipoactivo,
+					pe.puntos as bonus
 				FROM
 				dbtorneoge tge
 				Inner Join dbequipos e ON tge.refequipo = e.idequipo
@@ -303,9 +365,22 @@ class ServiciosDatos {
 				f.tipofecha,
 				fi.hora,
 				(case when fi.resultado_b is null then (select
-															(case when sum(gg.goles) is null then (case when fi.chequeado = 1 then 0 else null end) else sum(gg.goles) end)
-															from		tbgoleadores gg
-															where gg.reffixture = fi.idfixture and gg.refequipo = (select tge.refequipo 														
+										(case when sum(gg.goles) is null 
+											then (case when fi.chequeado = 1 then 0 else null end) 
+											else sum(gg.goles) - (select coalesce(sum(aaa.arquero),0) from tbamonestados aaa where aaa.reffixture = fi.idfixture
+											and aaa.refequipo = (select 
+												tge.refequipo
+											from
+												dbtorneoge tge
+											inner join dbtorneos t ON tge.reftorneo = t.idtorneo
+												and t.activo = true
+											inner join dbequipos e ON e.idequipo = tge.refequipo
+											inner join dbgrupos g ON g.idgrupo = tge.refgrupo
+											where
+												tge.idtorneoge = fi.reftorneoge_b))
+										end)
+									from		tbgoleadores gg
+									where gg.reffixture = fi.idfixture and gg.refequipo = (select tge.refequipo 														
 						from dbtorneoge tge
 						inner 
 						join dbtorneos t
@@ -319,7 +394,20 @@ class ServiciosDatos {
 						where tge.idtorneoge = fi.reftorneoge_b))
 							else fi.resultado_b end) as resultado_b,
 				(case when fi.resultado_a is null then (select
-												(case when sum(gg.goles) is null then (case when fi.chequeado = 1 then 0 else null end) else sum(gg.goles) end)
+												(case when sum(gg.goles) is null 
+													then (case when fi.chequeado = 1 then 0 else null end) 
+													else sum(gg.goles) - (select coalesce(sum(aaa.arquero),0) from tbamonestados aaa where aaa.reffixture = fi.idfixture
+																		and aaa.refequipo = (select 
+																			tge.refequipo
+																		from
+																			dbtorneoge tge
+																		inner join dbtorneos t ON tge.reftorneo = t.idtorneo
+																			and t.activo = true
+																		inner join dbequipos e ON e.idequipo = tge.refequipo
+																		inner join dbgrupos g ON g.idgrupo = tge.refgrupo
+																		where
+																			tge.idtorneoge = fi.reftorneoge_a))
+												end)
 												from		tbgoleadores gg
 												where gg.reffixture = fi.idfixture and gg.refequipo = (select tge.refequipo 
 																										from dbtorneoge tge
@@ -336,7 +424,8 @@ class ServiciosDatos {
 				else fi.resultado_a end) as resultado_a,
 				fi.reffecha,
 				tge.refgrupo,
-				tge.activo as equipoactivo	
+				tge.activo as equipoactivo,
+				pe.puntos as bonus	
 				FROM
 				dbtorneoge tge
 				Inner Join dbequipos e ON tge.refequipo = e.idequipo
@@ -469,7 +558,7 @@ select
 			sa.idequipo) ro ON ro.idequipo = fix.idequipo
 	
 	
-				order by (case when rr.idreemplazo is null then fix.pts + COALESCE(rrr.puntos,0) else fix.pts + rr.puntos end) desc, fix.puntos,
+				order by (case when rr.idreemplazo is null then fix.pts + fix.bonus + COALESCE(rrr.puntos,0) else fix.pts + rr.puntos end) desc, fix.puntos,
 	  fix.golesafavor - (case when rr.idreemplazo is null then fix.golesencontra + COALESCE(rrr.golesencontra,0) else fix.golesencontra + rr.golesencontra end) desc,
 	  fix.golesafavor desc,
 	  (case when rr.idreemplazo is null then fix.golesencontra + COALESCE(rrr.golesencontra,0) else fix.golesencontra + rr.golesencontra end),
