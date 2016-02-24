@@ -18,7 +18,7 @@ $serviciosHTML = new ServiciosHTML();
 
 $fecha = date('Y-m-d');
 
-$resMenu = $serviciosHTML->menu($_SESSION['nombre_predio'],"Torneos",$_SESSION['refroll_predio'],utf8_encode($_SESSION['torneo_predio']));
+$resMenu = $serviciosHTML->menu($_SESSION['nombre_predio'],"Torneos",$_SESSION['refroll_predio'],$_SESSION['torneo_predio']);
 
 
 /////////////////////// Opciones de la pagina  ////////////////////
@@ -34,27 +34,46 @@ $accionEliminar		= "eliminarTorneo";
 /////////////////////// Opciones para la creacion del formulario  /////////////////////
 $tabla 			= "dbtorneos";
 
-$lblCambio	 	= array("reftipotorneo","FechaCreacion");
-$lblreemplazo	= array("Tipo Torneo","Fecha Creaci贸n");
+$lblCambio	 	= array("reftipotorneo","FechaCreacion","refsede");
+$lblreemplazo	= array("Tipo Torneo","Fecha Creaci髇","Sede");
 
 $resTipoTorneo 	= $serviciosFunciones->traerTipoTorneo();
 
 $cadRef = '';
 while ($rowTT = mysql_fetch_array($resTipoTorneo)) {
-	$cadRef = $cadRef.'<option value="'.$rowTT[0].'">'.utf8_encode($rowTT[1]).'</option>';
+	$cadRef = $cadRef.'<option value="'.$rowTT[0].'">'.$rowTT[1].'</option>';
 	
 }
 
-$refdescripcion = array(0 => $cadRef);
-$refCampo[] 	= "reftipotorneo"; 
+
+$resSede 	= $serviciosFunciones->traerSedes();
+
+$cadRef2 = '';
+while ($rowS = mysql_fetch_array($resSede)) {
+	$cadRef2 = $cadRef2.'<option value="'.$rowS[0].'">'.$rowS[1].'</option>';
+	
+}
+
+$refdescripcion = array(0 => $cadRef,1 => $cadRef2);
+$refCampo 	= array("reftipotorneo","refsede"); 
 //////////////////////////////////////////////  FIN de los opciones //////////////////////////
 
+/////////////////// Sedes ///////////////////////
 
+$resFechas = $serviciosFunciones->traerSedes();
+
+$cadSedes = '<ul class="list-inline">';
+while ($rowFS = mysql_fetch_array($resFechas)) {
+	$cadSedes = $cadSedes."<li>".'<input id="sede'.$rowFS[0].'" class="form-control" type="checkbox" required="" style="width:50px;" name="sede'.$rowFS[0].'"><p>'.$rowFS[1].'</p>'."</li>";
+}
+$cadSedes = $cadSedes."</ul>";
+
+/////////////////////////////////////////////////////////////////
 
 
 /////////////////////// Opciones para la creacion del view  /////////////////////
 $cabeceras 		= "	<th>Nombre</th>
-				<th>Fecha Creaci贸n</th>
+				<th>Fecha Creaci髇</th>
 				<th>Activo</th>
 				<th>Tipo Torneo</th>";
 
@@ -84,13 +103,13 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
 
-<title>Gesti贸n: Predio 98</title>
+<title>Gesti&oacute;n: Tres Sesenta F&uacute;tbol</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -147,7 +166,16 @@ if ($_SESSION['refroll_predio'] != 1) {
         	<form class="form-inline formulario" role="form">
         	<?php echo $formulario; ?>
             
+            <hr>
             
+            <div class="row">
+            	<div class="form-group col-md-12">
+                	<label class="control-label" style="text-align:left" for="fechas">Sedes</label>
+                    <div class="input-group col-md-12">
+                    	<?php echo $cadSedes; ?>
+                    </div>
+                </div>
+            </div>
             
             <div class='row'>
                 <div class='alert'>
@@ -195,17 +223,44 @@ if ($_SESSION['refroll_predio'] != 1) {
 <div id="dialog2" title="Eliminar <?php echo $lblTitulosingular; ?>">
     	<p>
         	<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
-            驴Esta seguro que desea eliminar el <?php echo $lblTitulosingular; ?>?.<span id="proveedorEli"></span>
+            縀sta seguro que desea eliminar el <?php echo $lblTitulosingular; ?>?.<span id="proveedorEli"></span>
         </p>
         <p><strong>Importante: </strong><?php echo $lblEliminarObs; ?></p>
         <input type="hidden" value="" id="idEliminar" name="idEliminar">
 </div>
 <script src="../../js/bootstrap-datetimepicker.min.js"></script>
 <script src="../../js/bootstrap-datetimepicker.es.js"></script>
-
+<script type="text/javascript" src="../../js/jquery.dataTables.min.js"></script>
+<script src="../../bootstrap/js/dataTables.bootstrap.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
+	$('#example').dataTable({
+		"order": [[ 0, "asc" ]],
+		"language": {
+			"emptyTable":     "No hay datos cargados",
+			"info":           "Mostrar _START_ hasta _END_ del total de _TOTAL_ filas",
+			"infoEmpty":      "Mostrar 0 hasta 0 del total de 0 filas",
+			"infoFiltered":   "(filtrados del total de _MAX_ filas)",
+			"infoPostFix":    "",
+			"thousands":      ",",
+			"lengthMenu":     "Mostrar _MENU_ filas",
+			"loadingRecords": "Cargando...",
+			"processing":     "Procesando...",
+			"search":         "Buscar:",
+			"zeroRecords":    "No se encontraron resultados",
+			"paginate": {
+				"first":      "Primero",
+				"last":       "Ultimo",
+				"next":       "Siguiente",
+				"previous":   "Anterior"
+			},
+			"aria": {
+				"sortAscending":  ": activate to sort column ascending",
+				"sortDescending": ": activate to sort column descending"
+			}
+		  }
+	} );
 	
 	 $('.varborrar').click(function(event){
 		  usersid =  $(this).attr("id");
@@ -217,7 +272,7 @@ $(document).ready(function(){
 			//url = "../clienteseleccionado/index.php?idcliente=" + usersid;
 			//$(location).attr('href',url);
 		  } else {
-			alert("Error, vuelva a realizar la acci贸n.");	
+			alert("Error, vuelva a realizar la acci髇.");	
 		  }
 	});//fin del boton eliminar
 	
@@ -227,7 +282,7 @@ $(document).ready(function(){
 			url = "modificar.php?id=" + usersid;
 			$(location).attr('href',url);
 		  } else {
-			alert("Error, vuelva a realizar la acci贸n.");	
+			alert("Error, vuelva a realizar la acci髇.");	
 		  }
 	});//fin del boton modificar
 
@@ -280,10 +335,10 @@ $(document).ready(function(){
 		
 		if (validador() == "")
         {
-			//informaci贸n del formulario
+			//informaci髇 del formulario
 			var formData = new FormData($(".formulario")[0]);
 			var message = "";
-			//hacemos la petici贸n ajax  
+			//hacemos la petici髇 ajax  
 			$.ajax({
 				url: '../../ajax/ajax.php',  
 				type: 'POST',
@@ -308,8 +363,8 @@ $(document).ready(function(){
                                             $(".alert").html('<strong>Ok!</strong> Se cargo exitosamente el <strong><?php echo $lblTitulosingular; ?></strong>. ');
 											$(".alert").delay(3000).queue(function(){
 												/*aca lo que quiero hacer 
-												  despu茅s de los 2 segundos de retraso*/
-												$(this).dequeue(); //contin煤o con el siguiente 铆tem en la cola
+												  despu閟 de los 2 segundos de retraso*/
+												$(this).dequeue(); //contin鷒 con el siguiente 韙em en la cola
 												
 											});
 											$("#load").html('');

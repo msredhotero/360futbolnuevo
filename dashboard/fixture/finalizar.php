@@ -98,12 +98,12 @@ $cabeceras 		= "	<th>Equipo 1</th>
 
 
 
-$fixtureGenerardo = $Generar->Generar(38,19);
+$fixtureGenerardo = $Generar->Generar($_POST['idtorneo'],$_POST['idzona']);
 
-$array = $Generar->devolverCantFilas(38,19);
+$array = $Generar->devolverCantFilas($_POST['idtorneo'],$_POST['idzona']);
 
 $filas = $array["filas"] * $array["columnas"];
-
+//echo $array["filas"];
 $fecha = 1;
 for ($i=1; $i<=$filas;$i++) {
 	
@@ -111,16 +111,17 @@ for ($i=1; $i<=$filas;$i++) {
 	$nuevaFecha = $date[2]."-".$date[1]."-".$date[0];
 	$serviciosZonasEquipos->insertarFixture($_POST["equipoa".$i],"",$_POST["equipob".$i],"",$nuevaFecha,22+$fecha,$_POST["horario".$i],$_POST["cancha".$i]);
 	//echo "aaaaaaaaaaaaaaaaaaaaaaa".$nuevaFecha;
-	if (($i % 5) == 0) {
+	if (($i % $array["filas"]) == 0) {
 		$fecha += 1;
 	}
 }
+
+
 
 $lstCargados 	= $serviciosFunciones->camposTablaView($cabeceras,$serviciosZonasEquipos->TraerTodoFixture(),8);
 
 header('Location: generarfixture.php?idtorneo='.$_POST['idtorneo'].'&idzona='.$_POST['idzona']);
 ?>
-
 <!DOCTYPE HTML>
 <html>
 
@@ -449,6 +450,7 @@ $(document).ready(function(){
 		format: "dd/mm/yyyy"
 	});
 	</script>
+
 
 
 <?php } ?>

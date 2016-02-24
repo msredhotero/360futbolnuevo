@@ -259,32 +259,6 @@ class ServiciosJ {
 					order by f.apyn";
 		return $this->query($sql,0);
 	}
-	
-	function TraerJugadoresPorEquipoDatos($idequipo) {
-		$sql = "
-					select
-					*
-					from
-					(
-					select j.idjugador,
-						j.apellido,
-						j.nombre,
-						j.dni ,
-						j.email,
-						j.facebook,
-						j.invitado,
-						(case when s.refjugador is null then '0' else '1' end) as suspendido,
-						j.expulsado
-					from dbjugadores j 
-					left join (select distinct refjugador from dbsuspendidosfechas) s on j.idjugador = s.refjugador
-					where j.idequipo = ".$idequipo."
-					
-					
-					) as f
-					
-					order by f.apellido, f.nombre";
-		return $this->query($sql,0);
-	}
 
 
 
@@ -1052,8 +1026,6 @@ function traerJugadoresPorFixtureB($idfixture) {
 	$res = $this->query($sql,0);
 	return $res;
 }
-
-
 	
 	function query($sql,$accion) {
 		

@@ -103,7 +103,7 @@ $refCampo	 	= array("reftorneoge_a","reftorneoge_b","refFecha","cancha","Hora");
 
 
 
-$formulario 	= $serviciosFunciones->camposTablaModificar($id, "idfixture", "modificarFixtureTodo",$tabla,$lblCambio,$lblreemplazo,$refdescripcion,$refCampo);
+$formulario 	= $serviciosFunciones->camposTablaModificar($id, "idfixture", "modificarFixture",$tabla,$lblCambio,$lblreemplazo,$refdescripcion,$refCampo);
 
 
 if ($_SESSION['refroll_predio'] != 1) {

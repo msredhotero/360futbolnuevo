@@ -651,7 +651,7 @@ class ServiciosZonasEquipos {
 		where Idfixture =".$id;
 		
 		$res = $this->query($sql,0);
-		return 1;
+		return $res;
 	} 
 	
 	
@@ -781,7 +781,7 @@ class ServiciosZonasEquipos {
 			inner
 							join		tbtipotorneo tp
 							on			tp.idtipotorneo = t.reftipotorneo
-			where tp.descripciontorneo = '".$_SESSION['torneo_predio']."' and t.activo = 1
+			where tp.idtipotorneo = ".$_SESSION['idtorneo_predio']." and t.activo = 1
 			order by g.nombre, e.nombre";
 		return $this->query($sql,0);
 	}
@@ -877,12 +877,25 @@ class ServiciosZonasEquipos {
 		return $this->query($sql,0);
 	}
 	
-		function insertarConducta($refequipo,$puntos,$reffecha,$reftorneo) {
+	function eliminarConducta($refequipo,$reffecha,$reftorneo) {
+		$sql = "delete from tbconducta where refequipo =".$refequipo." and reffecha =".$reffecha." and reftorneo=".$reftorneo;
+		$this->query($sql,0);
+	}
+	
+	
+	function insertarConducta($refequipo,$puntos,$reffecha,$reftorneo) {
+		$sqlE = "select * from tbconducta where refequipo =".$refequipo." and reffecha =".$reffecha." and reftorneo=".$reftorneo;
+		$resE = $this->query($sqlE,0);
+		
+		if (mysql_num_rows($resE)>0) {
+			$this->eliminarConducta($refequipo,$reffecha,$reftorneo);
+		}
+		
 		$sql = "insert into tbconducta(idconducta,refequipo,puntos,reffecha,reftorneo)
 		values ('',".$refequipo.",".$puntos.",".$reffecha.",".$reftorneo.")";
 		$res = $this->query($sql,1);
 		return $res;
-		}
+	}
 		
 		
 		function modificarConducta($id,$refequipo,$puntos) {

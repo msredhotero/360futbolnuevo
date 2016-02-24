@@ -305,7 +305,7 @@ $resJugadoresB = $serviciosJugadores->traerJugadoresPorFixtureB($idFixture);
                             </th>
                             <th>
                             	<div align="center">
-                                	<input type="number" class="form-control input-sm" name="puntos<?php echo $row[0]; ?>" id="puntos<?php echo $row[0]; ?>" style="width:45px;" value="<?php if ($row["puntos"] == '') { echo 6; } else { echo $row["puntos"]; }?>"/>
+                                	<input type="number" class="form-control input-sm" name="puntos<?php echo $row[0]; ?>" id="puntos<?php echo $row[0]; ?>" style="width:55px;" value="<?php if ($row["puntos"] == '') { echo 6; } else { echo $row["puntos"]; }?>"/>
                                 </div>
                             </th>
                             <th>
@@ -447,7 +447,7 @@ $resJugadoresB = $serviciosJugadores->traerJugadoresPorFixtureB($idFixture);
                             </th>
                             <th>
                             	<div align="center">
-                                	<input type="number" class="form-control input-sm" name="puntos<?php echo $rowB[0]; ?>" id="puntos<?php echo $rowB[0]; ?>" style="width:45px;" value="<?php if ($rowB["puntos"] == '') { echo 6; } else { echo $rowB["puntos"]; }?>" />
+                                	<input type="number" class="form-control input-sm" name="puntos<?php echo $rowB[0]; ?>" id="puntos<?php echo $rowB[0]; ?>" style="width:55px;" value="<?php if ($rowB["puntos"] == '') { echo 6; } else { echo $rowB["puntos"]; }?>" />
                                 </div>
                             </th>
                             <th>

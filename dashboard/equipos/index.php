@@ -22,7 +22,7 @@ $serviciosEquipos 	= new ServiciosE();
 $fecha = date('Y-m-d');
 
 //$resProductos = $serviciosProductos->traerProductosLimite(6);
-$resMenu = $serviciosHTML->menu(utf8_encode($_SESSION['nombre_predio']),"Equipos",$_SESSION['refroll_predio'],$_SESSION['torneo_predio']);
+$resMenu = $serviciosHTML->menu($_SESSION['nombre_predio'],"Equipos",$_SESSION['refroll_predio'],$_SESSION['torneo_predio']);
 
 
 
@@ -30,7 +30,7 @@ $resMenu = $serviciosHTML->menu(utf8_encode($_SESSION['nombre_predio']),"Equipos
 $tabla 			= "dbequipos";
 
 $lblCambio	 	= array("nombrecapitan","emailcapitan","telefonocapitan","facebookcapitan","nombresubcapitan","emailsubcapitan","telefonosubcapitan","facebooksubcapitan");
-$lblreemplazo	= array("Nombre Capit√°n","Email Capit√°n","Telefono Capit√°n","Facebook Capit√°n","Nombre SubCapit√°n","Email SubCapit√°n","Telefono SubCapit√°n","Facebook SubCapit√°n");
+$lblreemplazo	= array("Nombre Capit·n","Email Capit·n","Telefono Capit·n","Facebook Capit·n","Nombre SubCapit·n","Email SubCapit·n","Telefono SubCapit·n","Facebook SubCapit·n");
 
 $cadRef = '';
 
@@ -43,14 +43,14 @@ $refCampo[] 	= "";
 
 /////////////////////// Opciones para la creacion del view  /////////////////////
 $cabeceras 		= "	<th>Nombre</th>
-				<th>Nombre Capit√°n</th>
-				<th>Email Capit√°n</th>
-				<th>Telefono Capit√°n</th>
-				<th>Facebook Capit√°n</th>
-				<th>Nombre SubCapit√°n</th>
-				<th>Email SubCapit√°n</th>
-				<th>Telefono SubCapit√°n</th>
-				<th>Facebook SubCapit√°n</th>";
+				<th>Nombre Capit·n</th>
+				<th>Email Capit·n</th>
+				<th>Telefono Capit·n</th>
+				<th>Facebook Capit·n</th>
+				<th>Nombre SubCapit·n</th>
+				<th>Email SubCapit·n</th>
+				<th>Telefono SubCapit·n</th>
+				<th>Facebook SubCapit·n</th>";
 
 //////////////////////////////////////////////  FIN de los opciones //////////////////////////
 
@@ -78,35 +78,36 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
 
-<title>Gesti√≥n: Predio 98</title>
+<title>Gesti&oacute;n: Tres Sesenta F&uacute;tbol</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 <link href="../../css/estiloDash.css" rel="stylesheet" type="text/css">
     
-<script type="text/javascript" src="../../js/jquery-1.8.3.min.js"></script>
 
+    
+    <script type="text/javascript" src="../../js/jquery-1.8.3.min.js"></script>
     <link rel="stylesheet" href="../../css/jquery-ui.css">
 
     <script src="../../js/jquery-ui.js"></script>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="../../bootstrap/css/bootstrap-theme.min.css">
-
-    <link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">
+    
+	<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css"/>
+	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!-- Latest compiled and minified JavaScript -->
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
-    
 
+	<style type="text/css">
+		
+  
+		
+	</style>
     
    
    <link href="../../css/perfect-scrollbar.css" rel="stylesheet">
@@ -184,7 +185,7 @@ if ($_SESSION['refroll_predio'] != 1) {
 <div id="dialog2" title="Eliminar Equipos">
     	<p>
         	<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
-            ¬øEsta seguro que desea eliminar el equipo?.<span id="proveedorEli"></span>
+            øEsta seguro que desea eliminar el equipo?.<span id="proveedorEli"></span>
         </p>
         <p><strong>Importante: </strong>Si elimina el equipo se perderan todos los datos de este</p>
         <input type="hidden" value="" id="idEliminar" name="idEliminar">
@@ -231,7 +232,7 @@ $(document).ready(function(){
 			//url = "../clienteseleccionado/index.php?idcliente=" + usersid;
 			//$(location).attr('href',url);
 		  } else {
-			alert("Error, vuelva a realizar la acci√≥n.");	
+			alert("Error, vuelva a realizar la acciÛn.");	
 		  }
 	});//fin del boton eliminar
 	
@@ -242,7 +243,7 @@ $(document).ready(function(){
 			url = "modificar.php?id=" + usersid;
 			$(location).attr('href',url);
 		  } else {
-			alert("Error, vuelva a realizar la acci√≥n.");	
+			alert("Error, vuelva a realizar la acciÛn.");	
 		  }
 	});//fin del boton modificar
 
@@ -297,10 +298,10 @@ $(document).ready(function(){
 		
 		if (validador() == "")
         {
-			//informaci√≥n del formulario
+			//informaciÛn del formulario
 			var formData = new FormData($(".formulario")[0]);
 			var message = "";
-			//hacemos la petici√≥n ajax  
+			//hacemos la peticiÛn ajax  
 			$.ajax({
 				url: '../../ajax/ajax.php',  
 				type: 'POST',
@@ -325,8 +326,8 @@ $(document).ready(function(){
                                             $(".alert").html('<strong>Ok!</strong> Se cargo exitosamente el <strong>Equipo</strong>. ');
 											$(".alert").delay(3000).queue(function(){
 												/*aca lo que quiero hacer 
-												  despu√©s de los 2 segundos de retraso*/
-												$(this).dequeue(); //contin√∫o con el siguiente √≠tem en la cola
+												  despuÈs de los 2 segundos de retraso*/
+												$(this).dequeue(); //contin˙o con el siguiente Ìtem en la cola
 												
 											});
 											$("#load").html('');

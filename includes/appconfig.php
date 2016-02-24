@@ -7,7 +7,7 @@ class appconfig {
 function conexion() {
 		
 		$hostname = "localhost";
-		$database = "360backup1";
+		$database = "360backup2";
 		$username = "root";
 		$password = "";
 		

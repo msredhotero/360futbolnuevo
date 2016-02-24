@@ -59,17 +59,17 @@ $accionEliminar		= "eliminarJugadores";
 /////////////////////// Opciones para la creacion del formulario  /////////////////////
 $tabla 			= "dbjugadores";
 
-$lblCambio		= array("idequipo","apyn");
-$lblreemplazo	= array("Equipo","Apellido y Nombre");
+$lblCambio		= array("idequipo");
+$lblreemplazo	= array("Equipo");
 
 $resEquipos 	= $serviciosEquipos->TraerEquipos();
 
 $cadRef = '';
 while ($rowTT = mysql_fetch_array($resEquipos)) {
-	if (mysql_result($resResultado,0,0) == $rowTT[0]) {
-		$cadRef = $cadRef.'<option value="'.$rowTT[0].'" selected>'.utf8_encode($rowTT[1]).'</option>';
+	if (mysql_result($resResultado,0,'idequipo') == $rowTT[0]) {
+		$cadRef = $cadRef.'<option value="'.$rowTT[0].'" selected>'.$rowTT[1].'</option>';
 	} else {
-		$cadRef = $cadRef.'<option value="'.$rowTT[0].'">'.utf8_encode($rowTT[1]).'</option>';	
+		$cadRef = $cadRef.'<option value="'.$rowTT[0].'">'.$rowTT[1].'</option>';	
 	}
 }
 
@@ -95,13 +95,13 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
 
-<title>Gesti贸n: Predio 98</title>
+<title>Gesti&oacute;n: Tres Sesenta F&uacute;tbol</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -151,7 +151,7 @@ if ($_SESSION['refroll_predio'] != 1) {
 
     <div class="boxInfoLargo">
         <div id="headBoxInfo">
-        	<p style="color: #fff; font-size:18px; height:16px;">Modificaci贸n de <?php echo $lblTituloplural; ?></p>
+        	<p style="color: #fff; font-size:18px; height:16px;">Modificaci&oacute;n de <?php echo $lblTituloplural; ?></p>
         	
         </div>
     	<div class="cuerpoBox">
@@ -160,9 +160,18 @@ if ($_SESSION['refroll_predio'] != 1) {
 			<div class="row">
                     <div class="form-group col-md-6">
                     
-                        <label class="control-label" style="text-align:left" for="apyn">Apellido Y Nombre</label>
+                        <label class="control-label" style="text-align:left" for="apyn">Apellido</label>
                         <div class="input-group col-md-12">
-                            <input id="apyn" class="form-control" type="text" required placeholder="Ingrese el Apellido Y Nombre..." value="<?php echo utf8_encode(mysql_result($resResultado,0,'apyn')); ?>" name="apyn">
+                            <input id="apellido" class="form-control" type="text" required placeholder="Ingrese el Apellido..." value="<?php echo mysql_result($resResultado,0,'apellido'); ?>" name="apellido">
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                    
+                        <label class="control-label" style="text-align:left" for="apyn">Nombre</label>
+                        <div class="input-group col-md-12">
+                            <input id="nombre" class="form-control" type="text" required placeholder="Ingrese el Nombre..." value="<?php echo mysql_result($resResultado,0,'apellido'); ?>" name="nombre">
                         </div>
                     
                     </div>
@@ -182,6 +191,20 @@ if ($_SESSION['refroll_predio'] != 1) {
                     <label class="control-label" style="text-align:left" for="dni">Dni</label>
                     <div class="input-group col-md-12">
                         <input id="dni" class="form-control" value="<?php echo mysql_result($resResultado,0,'dni'); ?>" type="text" required placeholder="Ingrese el Dni..." name="dni" >
+                    </div>
+                </div>
+                
+                <div class="form-group col-md-6">
+                    <label class="control-label" style="text-align:left" for="dni">E-Mail</label>
+                    <div class="input-group col-md-12">
+                        <input id="email" class="form-control" value="<?php echo mysql_result($resResultado,0,'email'); ?>" type="text" required placeholder="Ingrese el E-Mail..." name="email">
+                    </div>
+                </div>
+                
+                <div class="form-group col-md-6">
+                    <label class="control-label" style="text-align:left" for="dni">Facebook</label>
+                    <div class="input-group col-md-12">
+                        <input id="facebook" class="form-control" value="<?php echo mysql_result($resResultado,0,'facebook'); ?>" type="text" required placeholder="Ingrese el Facebook..." name="facebook">
                     </div>
                 </div>
                 
@@ -252,7 +275,7 @@ if ($_SESSION['refroll_predio'] != 1) {
 <div id="dialog2" title="Eliminar <?php echo $lblTitulosingular; ?>">
     	<p>
         	<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
-            驴Esta seguro que desea eliminar el <?php echo $lblTitulosingular; ?>?.<span id="proveedorEli"></span>
+            縀sta seguro que desea eliminar el <?php echo $lblTitulosingular; ?>?.<span id="proveedorEli"></span>
         </p>
         <p><strong>Importante: </strong><?php echo $lblEliminarObs; ?></p>
         <input type="hidden" value="" id="idEliminar" name="idEliminar">
@@ -280,7 +303,7 @@ $(document).ready(function(){
 			//url = "../clienteseleccionado/index.php?idcliente=" + usersid;
 			//$(location).attr('href',url);
 		  } else {
-			alert("Error, vuelva a realizar la acci贸n.");	
+			alert("Error, vuelva a realizar la acci髇.");	
 		  }
 	});//fin del boton eliminar
 
@@ -333,10 +356,10 @@ $(document).ready(function(){
 		
 		if (validador() == "")
         {
-			//informaci贸n del formulario
+			//informaci髇 del formulario
 			var formData = new FormData($(".formulario")[0]);
 			var message = "";
-			//hacemos la petici贸n ajax  
+			//hacemos la petici髇 ajax  
 			$.ajax({
 				url: '../../ajax/ajax.php',  
 				type: 'POST',
@@ -361,8 +384,8 @@ $(document).ready(function(){
                                             $(".alert").html('<strong>Ok!</strong> Se Modifico exitosamente el <strong><?php echo $lblTitulosingular; ?></strong>. ');
 											$(".alert").delay(3000).queue(function(){
 												/*aca lo que quiero hacer 
-												  despu茅s de los 2 segundos de retraso*/
-												$(this).dequeue(); //contin煤o con el siguiente 铆tem en la cola
+												  despu閟 de los 2 segundos de retraso*/
+												$(this).dequeue(); //contin鷒 con el siguiente 韙em en la cola
 												
 											});
 											$("#load").html('');

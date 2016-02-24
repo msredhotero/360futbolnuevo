@@ -56,14 +56,14 @@ $accionEliminar		= "eliminarJugadores";
 /////////////////////// Opciones para la creacion del formulario  /////////////////////
 $tabla 			= "dbjugadores";
 
-$lblCambio		= array("idequipo","apyn");
-$lblreemplazo	= array("Equipo","Apellido y Nombre");
+$lblCambio		= array("idequipo");
+$lblreemplazo	= array("Equipo");
 
 $resEquipos 	= $serviciosEquipos->TraerEquipos();
 
 $cadRef = '';
 while ($rowTT = mysql_fetch_array($resEquipos)) {
-	$cadRef = $cadRef.'<option value="'.$rowTT[0].'">'.utf8_encode($rowTT[1]).'</option>';
+	$cadRef = $cadRef.'<option value="'.$rowTT[0].'">'.$rowTT[1].'</option>';
 	
 }
 
@@ -104,13 +104,13 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
 
-<title>Gesti贸n: Predio 98</title>
+<title>Gesti&oacute;n: Tres Sesenta F&uacute;tbol</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -134,7 +134,7 @@ if ($_SESSION['refroll_predio'] != 1) {
   
 		
 	</style>
-    
+    <link rel="stylesheet" href="../../css/chosen.css">
    
    <link href="../../css/perfect-scrollbar.css" rel="stylesheet">
       <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
@@ -181,9 +181,18 @@ if ($_SESSION['refroll_predio'] != 1) {
 				<div class="row">
                     <div class="form-group col-md-6">
                     
-                        <label class="control-label" style="text-align:left" for="apyn">Apellido Y Nombre</label>
+                        <label class="control-label" style="text-align:left" for="apyn">Apellido</label>
                         <div class="input-group col-md-12">
-                            <input id="apyn" class="form-control" type="text" required placeholder="Ingrese el Apellido Y Nombre..." name="apyn">
+                            <input id="apellido" class="form-control" maxlength="60" type="text" required placeholder="Ingrese el Apellido..." name="apellido">
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                    
+                        <label class="control-label" style="text-align:left" for="apyn">Nombre</label>
+                        <div class="input-group col-md-12">
+                            <input id="nombre" class="form-control" maxlength="60" type="text" required placeholder="Ingrese el Nombre..." name="nombre">
                         </div>
                     
                     </div>
@@ -192,7 +201,8 @@ if ($_SESSION['refroll_predio'] != 1) {
                 <div class="form-group col-md-6">
                     <label class="control-label" style="text-align:left" for="idequipo">Equipo</label>
                     <div class="input-group col-md-12">
-                        <select id="idequipo" class="form-control" name="idequipo">
+                        <select data-placeholder="selecione el equipo..." id="idequipo" class="form-control chosen-select" name="idequipo">
+                        	<option value=""></option>
                         	<?php echo $cadRef; ?>
                         </select>
                     </div>
@@ -206,11 +216,33 @@ if ($_SESSION['refroll_predio'] != 1) {
                     </div>
                 </div>
                 
+                <div class="form-group col-md-6">
+                    <label class="control-label" style="text-align:left" for="dni">E-Mail</label>
+                    <div class="input-group col-md-12">
+                        <input id="email" class="form-control" type="text" required placeholder="Ingrese el E-Mail..." name="email">
+                    </div>
+                </div>
+                
+                <div class="form-group col-md-6">
+                    <label class="control-label" style="text-align:left" for="dni">Facebook</label>
+                    <div class="input-group col-md-12">
+                        <input id="facebook" class="form-control" type="text" required placeholder="Ingrese el Facebook..." name="facebook">
+                    </div>
+                </div>
+                
                 
                 <div class="form-group col-md-6">
                 	<label class="control-label" style="text-align:left" for="chequeado">Invitado</label>
                 	<div class="input-group col-md-12 fontcheck">
                         <input id="invitado" class="form-control" type="checkbox" required style="width:50px;" name="invitado">
+                        <p>Si/No</p>
+                	</div>
+                </div>
+                
+                <div class="form-group col-md-6">
+                	<label class="control-label" style="text-align:left" for="chequeado">Expulsado</label>
+                	<div class="input-group col-md-12 fontcheck">
+                        <input id="expulsado" class="form-control" type="checkbox" required style="width:50px;" name="expulsado">
                         <p>Si/No</p>
                 	</div>
                 </div>
@@ -312,7 +344,7 @@ if ($_SESSION['refroll_predio'] != 1) {
 <div id="dialog2" title="Eliminar <?php echo $lblTitulosingular; ?>">
     	<p>
         	<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
-            驴Esta seguro que desea eliminar al <?php echo $lblTitulosingular; ?>?.<span id="proveedorEli"></span>
+            縀sta seguro que desea eliminar al <?php echo $lblTitulosingular; ?>?.<span id="proveedorEli"></span>
         </p>
         <p><strong>Importante: </strong><?php echo $lblEliminarObs; ?></p>
         <input type="hidden" value="" id="idEliminar" name="idEliminar">
@@ -357,7 +389,7 @@ $(document).ready(function(){
 			//url = "../clienteseleccionado/index.php?idcliente=" + usersid;
 			//$(location).attr('href',url);
 		  } else {
-			alert("Error, vuelva a realizar la acci贸n.");	
+			alert("Error, vuelva a realizar la acci髇.");	
 		  }
 	});//fin del boton eliminar
 	
@@ -368,7 +400,7 @@ $(document).ready(function(){
 			url = "modificar.php?id=" + usersid;
 			$(location).attr('href',url);
 		  } else {
-			alert("Error, vuelva a realizar la acci贸n.");	
+			alert("Error, vuelva a realizar la acci髇.");	
 		  }
 	});//fin del boton modificar
 
@@ -421,10 +453,10 @@ $(document).ready(function(){
 		
 		if (validador() == "")
         {
-			//informaci贸n del formulario
+			//informaci髇 del formulario
 			var formData = new FormData($(".formulario")[0]);
 			var message = "";
-			//hacemos la petici贸n ajax  
+			//hacemos la petici髇 ajax  
 			$.ajax({
 				url: '../../ajax/ajax.php',  
 				type: 'POST',
@@ -443,27 +475,27 @@ $(document).ready(function(){
 				success: function(data){
 
 					if (data == '') {
-                                            $(".alert").removeClass("alert-danger");
-											$(".alert").removeClass("alert-info");
-                                            $(".alert").addClass("alert-success");
-                                            $(".alert").html('<strong>Ok!</strong> Se cargo exitosamente el <strong><?php echo $lblTitulosingular; ?></strong>. ');
-											$(".alert").delay(3000).queue(function(){
-												/*aca lo que quiero hacer 
-												  despu茅s de los 2 segundos de retraso*/
-												$(this).dequeue(); //contin煤o con el siguiente 铆tem en la cola
-												
-											});
-											$("#load").html('');
-											url = "index.php";
-											//$(location).attr('href',url);
-                                            
-											
-                                        } else {
-                                        	$(".alert").removeClass("alert-danger");
-                                            $(".alert").addClass("alert-danger");
-                                            $(".alert").html('<strong>Error!</strong> '+data);
-                                            $("#load").html('');
-                                        }
+						$(".alert").removeClass("alert-danger");
+						$(".alert").removeClass("alert-info");
+						$(".alert").addClass("alert-success");
+						$(".alert").html('<strong>Ok!</strong> Se cargo exitosamente el <strong><?php echo $lblTitulosingular; ?></strong>. ');
+						$(".alert").delay(3000).queue(function(){
+							/*aca lo que quiero hacer 
+							  despu閟 de los 2 segundos de retraso*/
+							$(this).dequeue(); //contin鷒 con el siguiente 韙em en la cola
+							
+						});
+						$("#load").html('');
+						url = "index.php";
+						$(location).attr('href',url);
+						
+						
+					} else {
+						$(".alert").removeClass("alert-danger");
+						$(".alert").addClass("alert-danger");
+						$(".alert").html('<strong>Error!</strong> '+data);
+						$("#load").html('');
+					}
 				},
 				//si ha ocurrido un error
 				error: function(){
@@ -477,6 +509,19 @@ $(document).ready(function(){
 
 });
 </script>
+<script src="../../js/chosen.jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var config = {
+      '.chosen-select'           : {},
+      '.chosen-select-deselect'  : {allow_single_deselect:true},
+      '.chosen-select-no-single' : {disable_search_threshold:10},
+      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+      '.chosen-select-width'     : {width:"95%"}
+    }
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+  </script>
 <?php } ?>
 </body>
 </html>

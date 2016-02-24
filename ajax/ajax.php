@@ -1627,7 +1627,7 @@ function FairPlay($serviciosDatos) {
 						$i =1;
 						$puntos = 0;
 						while ($row1 = mysql_fetch_array($res2)) {
-							$resAmarillasJugadores = $serviciosDatos->traerAcumuladosAmarillasPorTorneoZonaEquipo($idtorneo,$idzona,$idfecha,$row1['idequipo']);
+							$resAmarillasJugadores = $serviciosDatos->traerAcumuladosAmarillasPorTorneoZonaEquipo($idtorneo,$idzona,$idfecha,$row1['refequipo']);
 							if (mysql_num_rows($resAmarillasJugadores)>0) {
 								$amarillas 	= mysql_result($resAmarillasJugadores,0,'cantidad');
 								$azules		= mysql_result($resAmarillasJugadores,0,'cantidadazules');
@@ -2188,14 +2188,18 @@ function modificarJugadores($serviciosJugadores) {
 
 function modificarJugadoresEx($serviciosJugadores) {
 	$id 		= $_POST['id'];
-	$apyn 		= $_POST['apyn'];
+	$apellido = $_POST['apellido'];
+	$nombre = $_POST['nombre'];
 	$idequipo 	= $_POST['idequipo'];
 	$dni 		= $_POST['dni'];
 	
 	$invitado	= $_POST['invitado'];
 	$expulsado	= $_POST['expulsado'];
 	
-	$res = $serviciosJugadores->modificarJugadores($apyn,$dni,$idequipo,$id,$invitado,$expulsado);
+	$email = $_POST['email'];
+	$facebook = $_POST['facebook'];
+	
+	$res = $serviciosJugadores->modificarJugadores($id,$apellido,$nombre,$idequipo,$dni,$invitado,$expulsado,$email,$facebook); 
 	
 	//echo $res;
 	
@@ -2483,11 +2487,11 @@ function insertarZonasEquipos($serviciosZonasEquipos) {
 	
 	$res = $serviciosZonasEquipos->insertarZonasEquipos($refgrupo,$reftorneo,$refequipo,$prioridad);
 	if ((integer)$res > 0) {
-		
+		/*
 		for ($i=1;$i<=4;$i++) {
 			$serviciosZonasEquipos->insertarHorariosEquiposPrioridades($res,$_POST['idhorario'.$i],$_POST['horario'.$i]);
 		}
-		
+		*/
 		echo '';
 	} else {
 		echo 'Huvo un error al insertar datos';
@@ -2661,6 +2665,7 @@ function modificarFixture($serviciosZonasEquipos) {
 	} else {
 		echo 'Huvo un error al modificar datos';
 	}
+
 } 
 
 

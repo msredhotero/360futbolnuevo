@@ -52,7 +52,7 @@ $lblTituloplural	= "Zonas";
 $idZona		= $_GET['zona'];
 $idEquipo	= $_GET['equipo'];
 
-$resJugadores = $serviciosJugadores->TraerJugadoresPorEquipo($idEquipo);
+$resJugadores = $serviciosJugadores->TraerJugadoresPorEquipoDatos($idEquipo);
 
 $Equipo = mysql_result($serviciosEquipos->TraerIdEquipo($idEquipo),0,1);
 
@@ -120,7 +120,7 @@ if ($_SESSION['refroll_predio'] != 1) {
 		 for($p = 0;$p < count($arreglo_php); $p++){ //usamos count para saber cuantos elementos hay ?>
 		   autocompletar.push('<?php echo $arreglo_php[$p]; ?>');
 		 <?php } ?>
-		 $("#apyn").autocomplete({ //Usamos el ID de la caja de texto donde lo queremos
+		 $("#apellido").autocomplete({ //Usamos el ID de la caja de texto donde lo queremos
 		   source: autocompletar //Le decimos que nuestra fuente es el arreglo
 		 });
 	  });
@@ -136,7 +136,7 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 <h3><?php echo $Equipo; ?></h3>
 
-    <div class="boxInfoLargo" style="min-height:500px;">
+    <div class="boxInfoLargo" style="min-height:500px; width:1500px;">
         <div id="headBoxInfo">
         	<p style="color: #fff; font-size:18px; height:16px;">Modificar Jugadores Por Equipos</p>
         	
@@ -146,11 +146,13 @@ if ($_SESSION['refroll_predio'] != 1) {
             
         	<div class="row">
 				<form class="form-inline formulario" role="form">
-                    <table class="table table-striped table-responsive" id="example">
+                    <table class="table table-striped" id="example" >
                         <thead>
                             <tr>
                                 <th>Apyn</th>
                                 <th>Dni</th>
+                                <th>Email</th>
+                                <th>Facebook</th>
                                 <th>Invitado</th>
                                 <th>Expulsado</th>
                                 <th align="center">Acciones</th>
@@ -161,13 +163,23 @@ if ($_SESSION['refroll_predio'] != 1) {
                         </tbody>
                     		<?php while ($row = mysql_fetch_array($resJugadores)) { ?>
 							<tr id="fila<?php echo $row[0]; ?>">
-                       			<td><input id="apyn<?php echo $row[0]; ?>" class="form-control" type="text" value="<?php echo utf8_encode($row['apyn']); ?>" required placeholder="Apyn..." name="apyn">
+                       			<td><input id="apellido<?php echo $row[0]; ?>" class="form-control" type="text" value="<?php echo utf8_encode($row['apellido']); ?>" required placeholder="Apyn..." name="apellido">
                                 </td>
+                                <td><input id="nombre<?php echo $row[0]; ?>" class="form-control" type="text" value="<?php echo utf8_encode($row['nombre']); ?>" required placeholder="Apyn..." name="nombre">
+                                </td>
+                                
+                                <td><input id="email<?php echo $row[0]; ?>" class="form-control" type="text" value="<?php echo utf8_encode($row['email']); ?>" required placeholder="Email..." name="email">
+                                </td>
+                                <td><input id="facebook<?php echo $row[0]; ?>" class="form-control" type="text" value="<?php echo utf8_encode($row['nombre']); ?>" required placeholder="Facebook..." name="facebook">
+                                </td>
+                                
+                                
+                                
                                 <td><input id="dni<?php echo $row[0]; ?>" class="form-control" value="<?php echo $row['dni']; ?>" type="text" required placeholder="Dni..." name="dni">
                                 </td>
                                 <td>
                                 	<select id="invitado<?php echo $row[0]; ?>" class="form-control" name="invitado">
-                                		<?php if ($row['invitado'] == chr(0x01)) { ?>
+                                		<?php if ($row['invitado'] == 1) { ?>
                                         <option value="0">No</option>
                                         <option value="1" selected>Si</option>
                                         <?php } else { ?>
@@ -178,7 +190,7 @@ if ($_SESSION['refroll_predio'] != 1) {
                                 </td>
                                 <td>
                                 	<select id="expulsado<?php echo $row[0]; ?>" class="form-control" name="expulsado">
-                                		<?php if ($row['expulsado'] == chr(0x01)) { ?>
+                                		<?php if ($row['expulsado'] == 1) { ?>
                                         <option value="0">No</option>
                                         <option value="1" selected>Si</option>
                                         <?php } else { ?>
@@ -214,9 +226,18 @@ if ($_SESSION['refroll_predio'] != 1) {
  	<form class="form-inline formulario2" role="form">
                     <div class="form-group col-md-6">
                     
-                        <label class="control-label" style="text-align:left" for="apyn">Apellido Y Nombre</label>
+                        <label class="control-label" style="text-align:left" for="apyn">Apellido</label>
                         <div class="input-group col-md-12">
-                            <input id="apyn" class="form-control" type="text" required placeholder="Ingrese el Apellido Y Nombre..." name="apyn">
+                            <input id="apellido" class="form-control" type="text" required placeholder="Ingrese el Apellido..." name="apyn">
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                    
+                        <label class="control-label" style="text-align:left" for="apyn">Nombre</label>
+                        <div class="input-group col-md-12">
+                            <input id="nombre" class="form-control" type="text" required placeholder="Ingrese el Nombre..." name="apyn">
                         </div>
                     
                     </div>
@@ -238,7 +259,20 @@ if ($_SESSION['refroll_predio'] != 1) {
                             <input id="dni" class="form-control" type="text" required placeholder="Ingrese el Dni..." name="dni">
                         </div>
                     </div>
-                
+                	
+                    <div class="form-group col-md-6">
+                        <label class="control-label" style="text-align:left" for="dni">E-Mail</label>
+                        <div class="input-group col-md-12">
+                            <input id="email" class="form-control" type="text" required placeholder="Ingrese el E-Mail..." name="email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                        <label class="control-label" style="text-align:left" for="dni">Facebook</label>
+                        <div class="input-group col-md-12">
+                            <input id="facebook" class="form-control" type="text" required placeholder="Ingrese el Facebook..." name="facebook">
+                        </div>
+                    </div>
                 
                     <div class="form-group col-md-6">
                         <label class="control-label" style="text-align:left" for="chequeado">Invitado</label>
@@ -298,10 +332,11 @@ $(document).ready(function(){
 	
 	*/
 	
-	function modificarJugador(id,apyn,idequipo,dni,invitado,expulsado) {
+	function modificarJugador(id,apellido,nombre,idequipo,dni,invitado,expulsado) {
 		$.ajax({
 				data:  {id: id,
-						apyn: apyn,
+						apellido: apellido,
+						nombre: nombre,
 						idequipo: idequipo,
 						dni: dni,
 						invitado: invitado,
@@ -326,7 +361,7 @@ $(document).ready(function(){
 		  usersid =  $(this).attr("id");
 
 		  if (!isNaN(usersid)) {
-		  		modificarJugador(usersid,$('#apyn'+usersid).val(), <?php echo $idEquipo; ?>,$('#dni'+usersid).val(),$("#invitado"+usersid).val(), $("#expulsado"+usersid).val());
+		  		modificarJugador(usersid,$('#apellido'+usersid).val(),$('#nombre'+usersid).val(), <?php echo $idEquipo; ?>,$('#dni'+usersid).val(),$("#invitado"+usersid).val(), $("#expulsado"+usersid).val());
 				$(this).html('Modificado');
 				$(this).removeClass('btn-warning');
 				$(this).addClass('btn-success');

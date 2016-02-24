@@ -299,7 +299,7 @@ if ($_SESSION['refroll_predio'] != 1) {
 <div id="dialog2" title="Eliminar Equipo de la Zona">
     	<p class="alert alert-danger">
         	<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
-            ¿Esta seguro que desea eliminar el Equipo de la Categoria?.<span id="proveedorEli"></span>
+            ¿Esta seguro que desea eliminar el Equipo de la Zona?.<span id="proveedorEli"></span>
         </p>
 
         <input type="hidden" value="" id="idEliminar" name="idEliminar">
@@ -354,7 +354,7 @@ $(document).ready(function(){
 			$("#dialog2").dialog("open");
 
 			
-			//url = "index.php";
+			//url = "../clienteseleccionado/index.php?idcliente=" + usersid;
 			//$(location).attr('href',url);
 		  } else {
 			alert("Error, vuelva a realizar la acción.");	
@@ -395,7 +395,7 @@ $(document).ready(function(){
 											  });
 											
 											url = "index.php";
-											$(location).attr('href',url);
+											//$(location).attr('href',url);
 											
 									}
 							});
@@ -442,7 +442,7 @@ $(document).ready(function(){
                                             $(".alert").removeClass("alert-danger");
 											$(".alert").removeClass("alert-info");
                                             $(".alert").addClass("alert-success");
-                                            $(".alert").html('<strong>Ok!</strong> Se cargo exitosamente el <strong>Equipo a la Categoria</strong>. ');
+                                            $(".alert").html('<strong>Ok!</strong> Se cargo exitosamente el <strong>Equipo a la Zona</strong>. ');
 											$(".alert").delay(3000).queue(function(){
 												/*aca lo que quiero hacer 
 												  después de los 2 segundos de retraso*/

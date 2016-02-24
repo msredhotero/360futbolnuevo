@@ -27,40 +27,36 @@ $resMenu = $serviciosHTML->menu($_SESSION['nombre_predio'],"Equipos",$_SESSION['
 
 $id = $_GET['id'];
 
-$resResultado = $serviciosEquipos->TraerIdEquipo($id);;
+$resResultado = $serviciosFunciones->traerHorariosPorIdNuevo($id);
 
 /////////////////////// Opciones para la creacion del formulario  /////////////////////
-$tabla 			= "dbequipos";
+$tabla 			= "tbhorarios";
 
-$lblCambio	 	= array("nombrecapitan","emailcapitan","telefonocapitan","facebookcapitan","nombresubcapitan","emailsubcapitan","telefonosubcapitan","facebooksubcapitan");
-$lblreemplazo	= array("Nombre Capitán","Email Capitán","Telefono Capitán","Facebook Capitán","Nombre SubCapitán","Email SubCapitán","Telefono SubCapitán","Facebook SubCapitán");
+$lblCambio	 	= array("reftipotorneo");
+$lblreemplazo	= array("Tipo Torneo");
+
+$resTipoTorneo 	= $serviciosFunciones->traerTipoTorneo();
 
 $cadRef = '';
+while ($rowTT = mysql_fetch_array($resTipoTorneo)) {
+	if (mysql_result($resResultado,0,2) == $rowTT[0]) {
+		$cadRef = $cadRef.'<option value="'.$rowTT[0].'" selected>'.$rowTT[1].'</option>';
+	} else {
+		$cadRef = $cadRef.'<option value="'.$rowTT[0].'">'.$rowTT[1].'</option>';	
+	}
+}
 
-$refdescripcion = array(0 => "");
-$refCampo[] 	= ""; 
+$refdescripcion = array(0 => $cadRef);
+$refCampo[] 	= "reftipotorneo"; 
 //////////////////////////////////////////////  FIN de los opciones //////////////////////////
 
 
 
 
-/////////////////////// Opciones para la creacion del view  /////////////////////
-$cabeceras 		= "	<th>Nombre</th>
-				<th>Nombre Capitán</th>
-				<th>Email Capitán</th>
-				<th>Telefono Capitán</th>
-				<th>Facebook Capitán</th>
-				<th>Nombre SubCapitán</th>
-				<th>Email SubCapitán</th>
-				<th>Telefono SubCapitán</th>
-				<th>Facebook SubCapitán</th>";
-
-//////////////////////////////////////////////  FIN de los opciones //////////////////////////
 
 
 
-
-$formulario 	= $serviciosFunciones->camposTablaModificar($id, "idequipo", "modificarEquipos",$tabla,$lblCambio,$lblreemplazo,$refdescripcion,$refCampo);
+$formulario 	= $serviciosFunciones->camposTablaModificar($id, "idhorario", "modificarHorarios",$tabla,$lblCambio,$lblreemplazo,$refdescripcion,$refCampo);
 
 
 if ($_SESSION['refroll_predio'] != 1) {
@@ -102,12 +98,8 @@ if ($_SESSION['refroll_predio'] != 1) {
 	<link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!-- Latest compiled and minified JavaScript -->
     <script src="../../bootstrap/js/bootstrap.min.js"></script>
-
-	<style type="text/css">
-		
-  
-		
-	</style>
+<link rel="stylesheet" href="../../css/bootstrap-timepicker.css">
+    <script src="../../js/bootstrap-timepicker.min.js"></script>
     
    
    <link href="../../css/perfect-scrollbar.css" rel="stylesheet">
@@ -128,11 +120,11 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 <div id="content">
 
-<h3>Equipos</h3>
+<h3>Horarios</h3>
 
     <div class="boxInfoLargo">
         <div id="headBoxInfo">
-        	<p style="color: #fff; font-size:18px; height:16px;">Modificar de Equipos</p>
+        	<p style="color: #fff; font-size:18px; height:16px;">Modificar de Horarios</p>
         	
         </div>
     	<div class="cuerpoBox">
@@ -181,7 +173,7 @@ if ($_SESSION['refroll_predio'] != 1) {
 <div id="dialog2" title="Eliminar Equipos">
     	<p>
         	<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
-            ¿Esta seguro que desea eliminar el equipo?.<span id="proveedorEli"></span>
+            ¿Esta seguro que desea eliminar el Horarios?.<span id="proveedorEli"></span>
         </p>
         <p><strong>Importante: </strong>Si elimina el equipo se perderan todos los datos de este</p>
         <input type="hidden" value="" id="idEliminar" name="idEliminar">
@@ -191,7 +183,13 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 <script type="text/javascript">
 $(document).ready(function(){
-
+$('#timepicker2').timepicker({
+		minuteStep: 15,
+		showSeconds: false,
+		showMeridian: false,
+		defaultTime: false
+		});
+		
 	$('.volver').click(function(event){
 		 
 		url = "index.php";
@@ -223,7 +221,7 @@ $(document).ready(function(){
 				    "Eliminar": function() {
 	
 						$.ajax({
-									data:  {id: $('#idEliminar').val(), accion: 'eliminarEquipos'},
+									data:  {id: $('#idEliminar').val(), accion: 'eliminarHorarios'},
 									url:   '../../ajax/ajax.php',
 									type:  'post',
 									beforeSend: function () {
@@ -289,7 +287,7 @@ $(document).ready(function(){
                                             $(".alert").removeClass("alert-danger");
 											$(".alert").removeClass("alert-info");
                                             $(".alert").addClass("alert-success");
-                                            $(".alert").html('<strong>Ok!</strong> Se modifico exitosamente el <strong>Equipo</strong>. ');
+                                            $(".alert").html('<strong>Ok!</strong> Se modifico exitosamente el <strong>Horarios</strong>. ');
 											$(".alert").delay(3000).queue(function(){
 												/*aca lo que quiero hacer 
 												  después de los 2 segundos de retraso*/

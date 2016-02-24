@@ -18,7 +18,7 @@ $serviciosHTML = new ServiciosHTML();
 
 $fecha = date('Y-m-d');
 
-$resMenu = $serviciosHTML->menu($_SESSION['nombre_predio'],"Torneos",$_SESSION['refroll_predio'],utf8_encode($_SESSION['torneo_predio']));
+$resMenu = $serviciosHTML->menu($_SESSION['nombre_predio'],"Torneos",$_SESSION['refroll_predio'],$_SESSION['torneo_predio']);
 
 
 $id = $_GET['id'];
@@ -39,21 +39,24 @@ $accionEliminar		= "eliminarTorneo";
 $tabla 			= "dbtorneos";
 
 $lblCambio	 	= array("reftipotorneo","FechaCreacion");
-$lblreemplazo	= array("Tipo Torneo","Fecha Creaci贸n");
+$lblreemplazo	= array("Tipo Torneo","Fecha Creaci髇");
 
 $resTipoTorneo 	= $serviciosFunciones->traerTipoTorneo();
 
 $cadRef = '';
 while ($rowTT = mysql_fetch_array($resTipoTorneo)) {
 	if (mysql_result($resResultado,0,'reftipotorneo') == $rowTT[0]) {
-		$cadRef = $cadRef.'<option value="'.$rowTT[0].'" selected>'.utf8_encode($rowTT[1]).'</option>';
+		$cadRef = $cadRef.'<option value="'.$rowTT[0].'" selected>'.$rowTT[1].'</option>';
 	} else {
-		$cadRef = $cadRef.'<option value="'.$rowTT[0].'">'.utf8_encode($rowTT[1]).'</option>';
+		$cadRef = $cadRef.'<option value="'.$rowTT[0].'">'.$rowTT[1].'</option>';
 	}
 }
 
+
+
+
 $refdescripcion = array(0 => $cadRef);
-$refCampo[] 	= "reftipotorneo"; 
+$refCampo 	= array("reftipotorneo"); 
 //////////////////////////////////////////////  FIN de los opciones //////////////////////////
 
 
@@ -61,13 +64,45 @@ $refCampo[] 	= "reftipotorneo";
 
 /////////////////////// Opciones para la creacion del view  /////////////////////
 $cabeceras 		= "	<th>Nombre</th>
-				<th>Fecha Creaci贸n</th>
+				<th>Fecha Creaci髇</th>
 				<th>Activo</th>
 				<th>Tipo Torneo</th>";
 
 //////////////////////////////////////////////  FIN de los opciones //////////////////////////
 
+/////////////////// Fechas para Suspender ///////////////////////
 
+$resFechas = $serviciosFunciones->traerSedes();
+
+$resFS = $serviciosFunciones->traerSedesPorTorneo( $id);
+
+
+	while ($subrow = mysql_fetch_array($resFS)) {
+			$arrayFS[] = $subrow;
+	}
+
+
+
+$cadSedes = '<ul class="list-inline">';
+while ($rowFS = mysql_fetch_array($resFechas)) {
+	$check = '';
+	if (mysql_num_rows($resFS)>0) {
+		foreach ($arrayFS as $item) {
+			if (stripslashes($item['idsede']) == $rowFS[0]) {
+				$check = 'checked';	
+			}
+		}
+	}
+	$cadSedes = $cadSedes."<li>".'<input id="sede'.$rowFS[0].'" '.$check.' class="form-control" type="checkbox" required="" style="width:50px;" name="sede'.$rowFS[0].'"><p>'.$rowFS[1].'</p>'."</li>";
+
+
+}
+
+
+
+$cadSedes = $cadSedes."</ul>";
+
+/////////////////////////////////////////////////////////////////
 
 
 $formulario 	= $serviciosFunciones->camposTablaModificar($id, "idtorneo","modificarTorneo",$tabla,$lblCambio,$lblreemplazo,$refdescripcion,$refCampo);
@@ -89,13 +124,13 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
 
-<title>Gesti贸n: Predio 98</title>
+<title>Gesti&oacute;n: Tres Sesenta F&uacute;tbol</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -145,7 +180,7 @@ if ($_SESSION['refroll_predio'] != 1) {
 
     <div class="boxInfoLargo">
         <div id="headBoxInfo">
-        	<p style="color: #fff; font-size:18px; height:16px;">Modificaci贸n de <?php echo $lblTituloplural; ?></p>
+        	<p style="color: #fff; font-size:18px; height:16px;">Modificaci&oacute;n de <?php echo $lblTituloplural; ?></p>
         	
         </div>
     	<div class="cuerpoBox">
@@ -155,6 +190,14 @@ if ($_SESSION['refroll_predio'] != 1) {
 			<?php echo $formulario; ?>
             </div>
             
+            <div class="row">
+            	<div class="form-group col-md-12">
+                	<label class="control-label" style="text-align:left" for="fechas">Sedes</label>
+                    <div class="input-group col-md-12">
+                    	<?php echo $cadSedes; ?>
+                    </div>
+                </div>
+            </div>
             
             <div class='row' style="margin-left:25px; margin-right:25px;">
                 <div class='alert'>
@@ -173,9 +216,6 @@ if ($_SESSION['refroll_predio'] != 1) {
                     </li>
                     <li>
                         <button type="button" class="btn btn-danger varborrar" id="<?php echo $id; ?>" style="margin-left:0px;">Eliminar</button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn btn-danger varhistorial" id="<?php echo $id; ?>" style="margin-left:0px;">Pasar al Historial</button>
                     </li>
                     <li>
                         <button type="button" class="btn btn-default volver" style="margin-left:0px;">Volver</button>
@@ -198,7 +238,7 @@ if ($_SESSION['refroll_predio'] != 1) {
 <div id="dialog2" title="Eliminar <?php echo $lblTitulosingular; ?>">
     	<p>
         	<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
-            驴Esta seguro que desea eliminar el <?php echo $lblTitulosingular; ?>?.<span id="proveedorEli"></span>
+            縀sta seguro que desea eliminar el <?php echo $lblTitulosingular; ?>?.<span id="proveedorEli"></span>
         </p>
         <p><strong>Importante: </strong><?php echo $lblEliminarObs; ?></p>
         <input type="hidden" value="" id="idEliminar" name="idEliminar">
@@ -226,34 +266,7 @@ $(document).ready(function(){
 			//url = "../clienteseleccionado/index.php?idcliente=" + usersid;
 			//$(location).attr('href',url);
 		  } else {
-			alert("Error, vuelva a realizar la acci贸n.");	
-		  }
-	});//fin del boton eliminar
-	
-	
-	$('.varhistorial').click(function(event){
-		  usersid =  $(this).attr("id");
-		  if (!isNaN(usersid)) {
-			$.ajax({
-					data:  {id: usersid, 
-							accion: 'pasarAlHistorial'},
-					url:   '../../ajax/ajax.php',
-					type:  'post',
-					beforeSend: function () {
-							
-					},
-					success:  function (response) {
-							url = "index.php";
-							$(location).attr('href',url);
-							
-					}
-			});
-
-			
-			//url = "../clienteseleccionado/index.php?idcliente=" + usersid;
-			//$(location).attr('href',url);
-		  } else {
-			alert("Error, vuelva a realizar la acci贸n.");	
+			alert("Error, vuelva a realizar la acci髇.");	
 		  }
 	});//fin del boton eliminar
 
@@ -306,10 +319,10 @@ $(document).ready(function(){
 		
 		if (validador() == "")
         {
-			//informaci贸n del formulario
+			//informaci髇 del formulario
 			var formData = new FormData($(".formulario")[0]);
 			var message = "";
-			//hacemos la petici贸n ajax  
+			//hacemos la petici髇 ajax  
 			$.ajax({
 				url: '../../ajax/ajax.php',  
 				type: 'POST',
@@ -317,6 +330,7 @@ $(document).ready(function(){
 				//datos del formulario
 				data: formData,
 				//necesario para subir archivos via ajax
+				async:true,
 				cache: false,
 				contentType: false,
 				processData: false,
@@ -324,20 +338,18 @@ $(document).ready(function(){
 				beforeSend: function(){
 					$("#load").html('<img src="../../imagenes/load13.gif" width="50" height="50" />');       
 				},
+
+				global: true,
+        		ifModified: false,
 				//una vez finalizado correctamente
 				success: function(data){
-
+					
 					if (data == '') {
                                             $(".alert").removeClass("alert-danger");
 											$(".alert").removeClass("alert-info");
                                             $(".alert").addClass("alert-success");
                                             $(".alert").html('<strong>Ok!</strong> Se Modifico exitosamente el <strong><?php echo $lblTitulosingular; ?></strong>. ');
-											$(".alert").delay(3000).queue(function(){
-												/*aca lo que quiero hacer 
-												  despu茅s de los 2 segundos de retraso*/
-												$(this).dequeue(); //contin煤o con el siguiente 铆tem en la cola
-												
-											});
+											
 											$("#load").html('');
 											
                                             
