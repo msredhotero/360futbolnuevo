@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="LstJugadores1.xsd" generated="2015-03-24T19:27:54">
+<LstJugadores1>
+<Id1>1</Id1>
+<NombreEquipo>4 DE COPA</NombreEquipo>
+<capitan>FRANCO VIVA</capitan>
+<capitantelefono>3388-466335</capitantelefono>
+<capitanemail>FRANCO.VIVA@HOTMAIL.ES</capitanemail>
+<capitanfacebook>FRANCOVIVA32</capitanfacebook>
+<subcapitan>FRANCO CHAVES</subcapitan>
+<subcapitantelefono>221-435-0603</subcapitantelefono>
+<subcapitanemail>KAKO.CHAVES@GMAIL.COM</subcapitanemail>
+<subcapitanfacebook>FRANCOECHAVES</subcapitanfacebook>
+<id>1</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>2</Id1>
+<NombreEquipo>A CONFIRMAR</NombreEquipo>
+<capitan>MAXIMILIANO PINEIRO</capitan>
+<capitantelefono>221-643-8003</capitantelefono>
+<subcapitan>LEONARDO ROSSER</subcapitan>
+<subcapitantelefono>221-350-0125</subcapitantelefono>
+<id>2</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>3</Id1>
+<NombreEquipo>ATLETICO 78</NombreEquipo>
+<capitan>ABEL MORALES</capitan>
+<capitantelefono>221-5980883</capitantelefono>
+<subcapitan>JHON MORALES</subcapitan>
+<subcapitantelefono>221-5475531</subcapitantelefono>
+<id>3</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>4</Id1>
+<NombreEquipo>AYACUCHO</NombreEquipo>
+<capitan>CERESA EMILIANO</capitan>
+<capitantelefono>221-6265286</capitantelefono>
+<capitanemail>emilianoceresa@hotmail.com</capitanemail>
+<capitanfacebook>Emiliano Ceresa</capitanfacebook>
+<subcapitan>ACOSTA MATIAS</subcapitan>
+<subcapitantelefono>221-5428776</subcapitantelefono>
+<subcapitanemail>matias_aya@hotmail.com</subcapitanemail>
+<subcapitanfacebook>Matias Matias</subcapitanfacebook>
+<id>4</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>5</Id1>
+<NombreEquipo>BARRIO HIPODROMO</NombreEquipo>
+<capitan>NICOLAS BERNAZA</capitan>
+<capitantelefono>221-5079601</capitantelefono>
+<subcapitan>AGÜERO GEREMIAS</subcapitan>
+<subcapitantelefono>221-5765546</subcapitantelefono>
+<id>5</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>6</Id1>
+<NombreEquipo>CUALQUIER COSA FC</NombreEquipo>
+<capitan>Ezequiel Mendoza</capitan>
+<capitantelefono>221-596-8365</capitantelefono>
+<capitanemail>eduardoezequielmendoza@hotmail.com</capitanemail>
+<id>6</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>7</Id1>
+<NombreEquipo>DE RABONA</NombreEquipo>
+<capitan>Sergio Omar Criado</capitan>
+<capitantelefono>221-4200053</capitantelefono>
+<capitanemail>sercriado85@gmail.com</capitanemail>
+<subcapitan>Ivan Sibilio</subcapitan>
+<subcapitantelefono>221-6681696</subcapitantelefono>
+<subcapitanemail>ivandariosibilio07@gmail.com</subcapitanemail>
+<subcapitanfacebook>Ivan Sibilio</subcapitanfacebook>
+<id>7</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>8</Id1>
+<NombreEquipo>DEPORTIVO INTENCION</NombreEquipo>
+<capitan>Taulo José Ricardo</capitan>
+<capitantelefono>221-5935872</capitantelefono>
+<id>8</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>9</Id1>
+<NombreEquipo>DREAM TEAM</NombreEquipo>
+<capitan>Marin Emiliano </capitan>
+<capitantelefono>221-438-3494</capitantelefono>
+<subcapitan>Victor Silvestre</subcapitan>
+<subcapitantelefono>221-563-7768 </subcapitantelefono>
+<id>9</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>10</Id1>
+<NombreEquipo>EL AREA BLANCA</NombreEquipo>
+<capitan>JUAN MANUEL FIOL</capitan>
+<capitantelefono>221-5610159</capitantelefono>
+<subcapitan>MONZOL ABEL</subcapitan>
+<subcapitantelefono>221-5453121</subcapitantelefono>
+<id>10</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>11</Id1>
+<NombreEquipo>EL CARMEN</NombreEquipo>
+<capitan>Cesar Taborda</capitan>
+<capitantelefono>221-632-2387</capitantelefono>
+<id>11</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>12</Id1>
+<NombreEquipo>EL EBOLA</NombreEquipo>
+<capitan>RODRIGO ARIEL CABRERA</capitan>
+<capitantelefono>221-5406699</capitantelefono>
+<subcapitan>Facundo Palacios</subcapitan>
+<subcapitantelefono>2945-531423</subcapitantelefono>
+<id>12</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>13</Id1>
+<NombreEquipo>EL MATADOR</NombreEquipo>
+<capitan>EMILIO MARTINEZ</capitan>
+<capitantelefono>221-5862006</capitantelefono>
+<subcapitan>PABLO LLONTOP</subcapitan>
+<subcapitantelefono>221-4092206</subcapitantelefono>
+<id>13</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>14</Id1>
+<NombreEquipo>FAUSTO PAPETTI</NombreEquipo>
+<capitan>Ruben Barreto</capitan>
+<capitantelefono>221-6387171</capitantelefono>
+<subcapitan>Enrique Paez</subcapitan>
+<subcapitantelefono>221-4772292</subcapitantelefono>
+<id>14</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>15</Id1>
+<NombreEquipo>GUARDA LA JARRA QUE VIENE LUIS</NombreEquipo>
+<capitan>Luis</capitan>
+<capitantelefono>221-4314774</capitantelefono>
+<subcapitan>Hugo</subcapitan>
+<subcapitantelefono>221-4558843</subcapitantelefono>
+<id>15</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>16</Id1>
+<NombreEquipo>LA 15 FC</NombreEquipo>
+<capitan>DARIO GARCIA</capitan>
+<capitantelefono>221-4956409</capitantelefono>
+<subcapitan>MAXIMILIANO GARCIA</subcapitan>
+<subcapitantelefono>4732664</subcapitantelefono>
+<subcapitanemail>221-5749444</subcapitanemail>
+<id>16</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>17</Id1>
+<NombreEquipo>LA 85</NombreEquipo>
+<capitan>Roldán Fabián</capitan>
+<capitantelefono>221-5916539</capitantelefono>
+<subcapitan>Matías Misseri</subcapitan>
+<subcapitantelefono>221-5952025</subcapitantelefono>
+<id>17</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>18</Id1>
+<NombreEquipo>LA ACADEMIA</NombreEquipo>
+<capitan>LUCAS ZAPATA</capitan>
+<capitantelefono>011-53141330</capitantelefono>
+<subcapitan>SEBASTIAN ZAPATA</subcapitan>
+<subcapitantelefono>221-6497295</subcapitantelefono>
+<id>18</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>19</Id1>
+<NombreEquipo>LA RAMBLA FC</NombreEquipo>
+<capitan>Jonatan Calderón </capitan>
+<capitantelefono>221-494-8319</capitantelefono>
+<capitanemail>El_jone.ve@hotmail.com</capitanemail>
+<capitanfacebook>Jc Calderón</capitanfacebook>
+<subcapitan>Franco Senta</subcapitan>
+<subcapitantelefono>221-670-6311</subcapitantelefono>
+<subcapitanemail>Franco_megusta@hotmail.com</subcapitanemail>
+<subcapitanfacebook>Franco Martín</subcapitanfacebook>
+<id>19</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>20</Id1>
+<NombreEquipo>LOS AMIGOS DE MESSI</NombreEquipo>
+<capitan>Kevin Einschlag</capitan>
+<capitantelefono>221-632-1307</capitantelefono>
+<capitanemail>kevinela12@hotmail.com</capitanemail>
+<capitanfacebook>einschlag kevin</capitanfacebook>
+<subcapitan>Felipe Moreno</subcapitan>
+<subcapitantelefono>221-655-3110</subcapitantelefono>
+<subcapitanfacebook>felipe moreno </subcapitanfacebook>
+<id>20</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>21</Id1>
+<NombreEquipo>LOS BORBOTONES</NombreEquipo>
+<capitan>MARIANO RIVERO</capitan>
+<capitantelefono>221-6372352</capitantelefono>
+<subcapitan>LUCAS VALDEMOROS</subcapitan>
+<subcapitantelefono>221-5755162</subcapitantelefono>
+<id>21</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>22</Id1>
+<NombreEquipo>LOS PERROS CHAKALES FC</NombreEquipo>
+<capitan>Eber Nicolas Moyano</capitan>
+<capitantelefono>221-6402601</capitantelefono>
+<subcapitan>Laureano Moreno</subcapitan>
+<subcapitantelefono>221-5373063</subcapitantelefono>
+<id>22</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>23</Id1>
+<NombreEquipo>LOS PINIPONES</NombreEquipo>
+<capitan>LOPEZ ENZO</capitan>
+<capitantelefono>221-4194252</capitantelefono>
+<capitanfacebook>ENZO NAHUEL LOPEZ</capitanfacebook>
+<subcapitan>LOPEZ HECTOR</subcapitan>
+<subcapitantelefono>221-6186468</subcapitantelefono>
+<subcapitanfacebook>HECTOR LOPEZ</subcapitanfacebook>
+<id>23</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>24</Id1>
+<NombreEquipo>LOS RANCIOS</NombreEquipo>
+<capitan>Matias Morales </capitan>
+<capitantelefono>221-476-8745</capitantelefono>
+<subcapitan>Jose Vazquez </subcapitan>
+<subcapitantelefono>221-569-4314</subcapitantelefono>
+<id>24</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>25</Id1>
+<NombreEquipo>LOS RUSTICOS</NombreEquipo>
+<capitan>Marcos Ricci</capitan>
+<capitantelefono>11-663-65492 </capitantelefono>
+<id>25</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>26</Id1>
+<NombreEquipo>MACHETE FC</NombreEquipo>
+<capitan>Dimitri Ivaskevich</capitan>
+<capitantelefono>221-610-4168</capitantelefono>
+<capitanemail>ariel9_@hotmail.com</capitanemail>
+<capitanfacebook>Dimitri Ivaskevich</capitanfacebook>
+<subcapitan>Martin Zotti</subcapitan>
+<subcapitantelefono>0221-498-7653</subcapitantelefono>
+<subcapitanemail>martinzotti@hotmail.com</subcapitanemail>
+<subcapitanfacebook>Martin Zotti</subcapitanfacebook>
+<id>26</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>27</Id1>
+<NombreEquipo>MAS O MENOS</NombreEquipo>
+<capitan>MARITO HERRERA</capitan>
+<capitantelefono>2216225231</capitantelefono>
+<capitanemail>FELI_LA12_1@HOTMAIL.COM</capitanemail>
+<capitanfacebook>MARITO HERRERA</capitanfacebook>
+<subcapitan>MATIAS TERREIN</subcapitan>
+<subcapitantelefono>2215944405</subcapitantelefono>
+<subcapitanemail>TERREIN.MATIAS@YAHOO.COM</subcapitanemail>
+<subcapitanfacebook>MATIAS TERREIN</subcapitanfacebook>
+<id>27</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>28</Id1>
+<NombreEquipo>MONASTERIO FC</NombreEquipo>
+<capitan>Matias Rodriguez</capitan>
+<capitantelefono>221-355-5670</capitantelefono>
+<capitanemail>4527121</capitanemail>
+<subcapitan>Juan Rodriguez</subcapitan>
+<subcapitantelefono>221-498-7475</subcapitantelefono>
+<subcapitanemail>4573510</subcapitanemail>
+<id>28</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>29</Id1>
+<NombreEquipo>MUCHO FC</NombreEquipo>
+<capitan>Lugli Franco</capitan>
+<capitantelefono>221 3166590</capitantelefono>
+<capitanemail>franlugli@gmail.com</capitanemail>
+<capitanfacebook>Fran Lugli</capitanfacebook>
+<subcapitan>Urrutipi, Ariel</subcapitan>
+<subcapitantelefono>221 5938456</subcapitantelefono>
+<subcapitanemail>arielurrutipi@gmail.com</subcapitanemail>
+<subcapitanfacebook>Ariel Urrutipi</subcapitanfacebook>
+<id>29</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>30</Id1>
+<NombreEquipo>NO COMPLETAN</NombreEquipo>
+<capitan>Cristian Martinez</capitan>
+<capitantelefono>221-6062051</capitantelefono>
+<subcapitan>Leonardo Caceres</subcapitan>
+<subcapitantelefono>221-4116687</subcapitantelefono>
+<id>30</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>31</Id1>
+<NombreEquipo>PARA QUE TE TRAJE</NombreEquipo>
+<capitan>Mariano Lopez</capitan>
+<capitantelefono>221-6007472</capitantelefono>
+<capitanemail>mlopez@eldia.com</capitanemail>
+<capitanfacebook>Mariano Lopez</capitanfacebook>
+<subcapitan>Facundo Pardo</subcapitan>
+<subcapitantelefono>221-5582170</subcapitantelefono>
+<id>31</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>32</Id1>
+<NombreEquipo>RESAKEADOS FC</NombreEquipo>
+<capitan>LUCAS VALLEJO</capitan>
+<capitantelefono>1132366432</capitantelefono>
+<capitanemail>LUKS_PITU@HOTMAIL.COM</capitanemail>
+<capitanfacebook>LUCAS MANUEL</capitanfacebook>
+<subcapitan>MAURICIO ALMIRON</subcapitan>
+<subcapitantelefono>2214973415</subcapitantelefono>
+<subcapitanemail>NI_LARENGA-11@HOTMAIL.COM</subcapitanemail>
+<subcapitanfacebook>MAURI ALMIRON</subcapitanfacebook>
+<id>32</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>33</Id1>
+<NombreEquipo>ROJA DIRECTA</NombreEquipo>
+<capitan>NAVARRO MARTIN</capitan>
+<capitantelefono>221-4408811</capitantelefono>
+<capitanemail>MARTINIANO_NAVARRO@HOTMAIL.COM</capitanemail>
+<id>33</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>34</Id1>
+<NombreEquipo>SHALKE 40</NombreEquipo>
+<capitan>Alexis Barrios</capitan>
+<capitantelefono>221-511-0710</capitantelefono>
+<capitanemail>221-632-8869</capitanemail>
+<capitanfacebook>Ezequiel Castelli</capitanfacebook>
+<subcapitan>Fernando Quinhones</subcapitan>
+<subcapitantelefono>221-505-3428</subcapitantelefono>
+<id>34</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>35</Id1>
+<NombreEquipo>SIN ENGANCHE</NombreEquipo>
+<capitan>Heredia Marcos</capitan>
+<capitantelefono>2216124230</capitantelefono>
+<capitanemail>Markozz.94_lp@hotmail.com</capitanemail>
+<capitanfacebook>Markitoss Heredia</capitanfacebook>
+<subcapitan>Heredia Miguel</subcapitan>
+<subcapitantelefono>2214186159</subcapitantelefono>
+<subcapitanemail>Miguel_la_plata@hotmail.com</subcapitanemail>
+<subcapitanfacebook>Miguel Angel Heredia</subcapitanfacebook>
+<id>35</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>36</Id1>
+<NombreEquipo>SPORTIVO TORIBIO</NombreEquipo>
+<capitan>Fernando Kogan</capitan>
+<capitantelefono>2215739018</capitantelefono>
+<capitanfacebook>Fer Kogan</capitanfacebook>
+<subcapitan>Rodrigo Miloslavsky</subcapitan>
+<subcapitantelefono>2215234733</subcapitantelefono>
+<subcapitanemail>221-5454875</subcapitanemail>
+<id>36</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>37</Id1>
+<NombreEquipo>TITO FC</NombreEquipo>
+<capitan>lettieri juan andres</capitan>
+<capitantelefono>0221-15-5423914</capitantelefono>
+<capitanemail>andreslettieri@gmail.com</capitanemail>
+<capitanfacebook>juan andres lettieri</capitanfacebook>
+<subcapitan>orlando, jeronimo</subcapitan>
+<subcapitantelefono>0221-15-5421605</subcapitantelefono>
+<subcapitanemail>0221-153172459</subcapitanemail>
+<subcapitanfacebook>Martin Iriondo</subcapitanfacebook>
+<id>37</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>38</Id1>
+<NombreEquipo>UTV</NombreEquipo>
+<capitan>Rene</capitan>
+<capitantelefono>221-6377501</capitantelefono>
+<capitanemail>4860601</capitanemail>
+<subcapitan>Diego</subcapitan>
+<subcapitantelefono>221-4286336</subcapitantelefono>
+<id>38</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>39</Id1>
+<NombreEquipo>VITESSE GONNET </NombreEquipo>
+<capitan>Juan Ignacio Ireba</capitan>
+<capitantelefono>22115-556-0002</capitantelefono>
+<capitanemail>pirru09@hotmail.com</capitanemail>
+<capitanfacebook>Pirru Ireba</capitanfacebook>
+<subcapitan>Imanol Ireba</subcapitan>
+<subcapitantelefono>022115-523-3050</subcapitantelefono>
+<subcapitanemail>imanol.ireba@gmail.com</subcapitanemail>
+<subcapitanfacebook>Imanol Ireba</subcapitanfacebook>
+<id>39</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>40</Id1>
+<NombreEquipo>YARARAS</NombreEquipo>
+<capitan>Viña Lisandro</capitan>
+<capitantelefono>221428-9358</capitantelefono>
+<subcapitan>Luchetti Martin</subcapitan>
+<subcapitantelefono>221626-0870</subcapitantelefono>
+<id>40</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>41</Id1>
+<NombreEquipo>ASTON BIRRA</NombreEquipo>
+<capitan>LUIS CORVALAN</capitan>
+<capitantelefono>2216075748</capitantelefono>
+<capitanemail>luiscorva12@gmail.com</capitanemail>
+<capitanfacebook>aston_birra@hotmail.com.ar</capitanfacebook>
+<subcapitan>CHAVERO TOMAS</subcapitan>
+<subcapitantelefono>2216079428</subcapitantelefono>
+<id>1</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>42</Id1>
+<NombreEquipo>BARRIO UPCN</NombreEquipo>
+<capitan>VICTOR TRIVIÑO</capitan>
+<capitantelefono>221-661-8504</capitantelefono>
+<capitanemail>victor_pincha@hotmail.com</capitanemail>
+<capitanfacebook>VICTOR TRIVIÑO</capitanfacebook>
+<subcapitan>LEANDRO VERON</subcapitan>
+<subcapitantelefono>221-596-3306</subcapitantelefono>
+<subcapitanfacebook>LEANDRO VERON</subcapitanfacebook>
+<id>2</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>43</Id1>
+<NombreEquipo>BRANCA LEVERKUSEN</NombreEquipo>
+<capitan>DESIO DAMIAN</capitan>
+<capitantelefono>221-563-5702</capitantelefono>
+<subcapitan>JUAN</subcapitan>
+<subcapitantelefono>221-569-9384</subcapitantelefono>
+<id>3</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>44</Id1>
+<NombreEquipo>BUSHIDO</NombreEquipo>
+<capitan>DAVID BONY</capitan>
+<capitantelefono>221-599-4219</capitantelefono>
+<capitanemail>xram27@hotmail.com</capitanemail>
+<capitanfacebook>/david.bony</capitanfacebook>
+<subcapitan>JUAN FERRI</subcapitan>
+<subcapitantelefono>221-434-8526</subcapitantelefono>
+<subcapitanemail>jmf_pinchacapo@hotmail.com</subcapitanemail>
+<subcapitanfacebook>/juanmanuel.ferri.3</subcapitanfacebook>
+<id>4</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>45</Id1>
+<NombreEquipo>CATALAMA FC</NombreEquipo>
+<capitan>SEBASTIAN HELO</capitan>
+<capitantelefono>221-6567626</capitantelefono>
+<subcapitan>FERNANDO VEZZOSI</subcapitan>
+<subcapitantelefono>221-6340075</subcapitantelefono>
+<subcapitanemail>Fer_tano@hotmail.com</subcapitanemail>
+<subcapitanfacebook>Fernando Vezzosi</subcapitanfacebook>
+<id>5</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>46</Id1>
+<NombreEquipo>CDC</NombreEquipo>
+<capitan>LUCAS FERNANDEZ</capitan>
+<capitantelefono>221-6052079</capitantelefono>
+<subcapitan>RUBEN</subcapitan>
+<subcapitantelefono>221-5861822</subcapitantelefono>
+<id>6</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>47</Id1>
+<NombreEquipo>CIPOLLETI FC</NombreEquipo>
+<capitan>STEFANO GRISANTI</capitan>
+<capitantelefono>299-4524506</capitantelefono>
+<capitanemail>299-4681296</capitanemail>
+<capitanfacebook>Marino Bonotti</capitanfacebook>
+<subcapitan>EZEQUIEL BONOTTI</subcapitan>
+<subcapitantelefono>299-4054484</subcapitantelefono>
+<id>7</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>48</Id1>
+<NombreEquipo>DEPORTIVO NUBARRON</NombreEquipo>
+<capitan>PEDRO GARGANTA</capitan>
+<capitantelefono>221 606 2796</capitantelefono>
+<capitanemail>agus_elgomezmaly@hotmail.com</capitanemail>
+<subcapitan>MARCO ANDREOLI</subcapitan>
+<subcapitantelefono>221 542 3834</subcapitantelefono>
+<subcapitanemail>agusbasile_bba@hotmail.com</subcapitanemail>
+<id>8</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>49</Id1>
+<NombreEquipo>FLAMINGO</NombreEquipo>
+<capitan>ALVAREZ JERONIMO</capitan>
+<capitantelefono>221-615-5495</capitantelefono>
+<capitanemail>alvarezj@hotmail.com.ar</capitanemail>
+<capitanfacebook>alvarez jeronimo</capitanfacebook>
+<subcapitan>CUERVO JONATAN</subcapitan>
+<subcapitantelefono>221-434-5854</subcapitantelefono>
+<subcapitanfacebook>jonatan cuervo</subcapitanfacebook>
+<id>9</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>50</Id1>
+<NombreEquipo>HIERBA BRAVA</NombreEquipo>
+<capitan>ARMENTIA GONZALO</capitan>
+<capitantelefono>221-564-7183</capitantelefono>
+<capitanemail>gonza22.lp@hotmail.com</capitanemail>
+<subcapitan>YAMIL RAIDAN</subcapitan>
+<subcapitantelefono>221-438-6689</subcapitantelefono>
+<id>10</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>51</Id1>
+<NombreEquipo>LOS APOSTOLES</NombreEquipo>
+<capitan>RICO DIEGO MARTIN</capitan>
+<capitantelefono>221-6062232</capitantelefono>
+<capitanemail>dmartor@hotmail.com</capitanemail>
+<subcapitan>TOSCANI EMILIANO</subcapitan>
+<subcapitantelefono>221-4197356</subcapitantelefono>
+<subcapitanemail>emitoscani@hotmail.com</subcapitanemail>
+<id>11</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>52</Id1>
+<NombreEquipo>LOS VITANGA FC</NombreEquipo>
+<capitan>AGUSTIN CHIMENTI</capitan>
+<capitantelefono>221-6162884</capitantelefono>
+<capitanemail>agustinchimenti@hotmail.com</capitanemail>
+<subcapitan>DEFEIS MAXIMILIANO</subcapitan>
+<subcapitantelefono>221-5225923</subcapitantelefono>
+<subcapitanemail>maxidefeis@hotmail.com</subcapitanemail>
+<id>12</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>53</Id1>
+<NombreEquipo>MERCADO FC</NombreEquipo>
+<capitan>EZEQUIEL</capitan>
+<capitantelefono>221-5087478</capitantelefono>
+<subcapitan>CRISTIAN SANTIÑAQUE</subcapitan>
+<subcapitantelefono>221-579-7794</subcapitantelefono>
+<id>13</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>54</Id1>
+<NombreEquipo>MIRAFLORES</NombreEquipo>
+<capitan>GOBELLO FELIPE</capitan>
+<capitantelefono>221-354-9696</capitantelefono>
+<capitanemail>feli.everton@hotmail.com </capitanemail>
+<capitanfacebook>Felipe Gobello</capitanfacebook>
+<subcapitan>BAZTARRICA JUAN</subcapitan>
+<subcapitantelefono>221-508-8968</subcapitantelefono>
+<subcapitanemail>221-620-2135</subcapitanemail>
+<subcapitanfacebook>LAMBOGLIA SANTIAGO</subcapitanfacebook>
+<id>14</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>55</Id1>
+<NombreEquipo>PARQUE CASTELLI</NombreEquipo>
+<capitan>EZEQUIEL BARRADO</capitan>
+<capitantelefono>221-5640 517</capitantelefono>
+<capitanemail>julianmercado90@hotmail.com </capitanemail>
+<subcapitan>NICOLAS BELUCCI</subcapitan>
+<subcapitantelefono>221-6559136</subcapitantelefono>
+<subcapitanemail>nico22lp@hotmail.com</subcapitanemail>
+<id>15</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>56</Id1>
+<NombreEquipo>PUNTA LARA FC</NombreEquipo>
+<capitan>MARCOS MARTINEZ</capitan>
+<capitantelefono>221-459-1345</capitantelefono>
+<capitanemail>221-6003793/4660591</capitanemail>
+<capitanfacebook>Hector Fernandez</capitanfacebook>
+<subcapitan>ISIDRO ALBERTO MARTINEZ</subcapitan>
+<subcapitantelefono>221-357-0569</subcapitantelefono>
+<subcapitanfacebook>Fernandez Juan Manuel</subcapitanfacebook>
+<id>16</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>57</Id1>
+<NombreEquipo>SEBA Y LOS NIETOS</NombreEquipo>
+<capitan>FERNANDO BAZZE</capitan>
+<capitantelefono>221-6087835</capitantelefono>
+<capitanemail>ferbazze@gmail.com</capitanemail>
+<subcapitan>EZEQUIEL FIDALGO</subcapitan>
+<subcapitanemail>cefidalgo@gmail.com</subcapitanemail>
+<subcapitanfacebook>EZEQUIEL FIDALGO</subcapitanfacebook>
+<id>17</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>58</Id1>
+<NombreEquipo>SPORTING LP</NombreEquipo>
+<capitan>GUSTAVO RIBAS</capitan>
+<capitantelefono>221-434-5042</capitantelefono>
+<subcapitan>JOEL SALAZAR</subcapitan>
+<subcapitantelefono> 221-557-4536</subcapitantelefono>
+<id>18</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>59</Id1>
+<NombreEquipo>UNION</NombreEquipo>
+<capitan>SAVOIA MAXIMILIANO</capitan>
+<capitantelefono>221-351-3781</capitantelefono>
+<capitanemail>Maxi_mms@live.com.ar</capitanemail>
+<capitanfacebook>Maxi Savoia</capitanfacebook>
+<subcapitan>SEBASTIAN JUMILLA</subcapitan>
+<subcapitantelefono>221-508-2941</subcapitantelefono>
+<id>19</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>60</Id1>
+<NombreEquipo>WILLIAN BOO</NombreEquipo>
+<capitan>EMANUEL SILVA</capitan>
+<capitantelefono>221-591-1085</capitantelefono>
+<capitanemail>emanueldariosilva@gmail.com</capitanemail>
+<subcapitan>PATRICIO ALARCON</subcapitan>
+<subcapitantelefono>221-504-5705</subcapitantelefono>
+<subcapitanemail>filoalarcon@hotmail.com</subcapitanemail>
+<id>20</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>61</Id1>
+<NombreEquipo>19 DE FEBRERO</NombreEquipo>
+<capitan>RAMIREZ MARIANO</capitan>
+<capitantelefono>221-4369394</capitantelefono>
+<capitanemail>nuevo 221-3628732</capitanemail>
+<subcapitan>CATERIANO NAHUEL</subcapitan>
+<subcapitantelefono>221-6271996</subcapitantelefono>
+<id>1</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>62</Id1>
+<NombreEquipo>AEROPUERTO FC</NombreEquipo>
+<capitan>MAURO JEREZ</capitan>
+<capitantelefono>4862501</capitantelefono>
+<capitanfacebook>aeropuerto f.c </capitanfacebook>
+<subcapitan>OSCAR CHAVES</subcapitan>
+<subcapitantelefono>221-620-0026</subcapitantelefono>
+<subcapitanfacebook>Oscar chaves</subcapitanfacebook>
+<id>2</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>63</Id1>
+<NombreEquipo>ALTO EQUIPO</NombreEquipo>
+<capitan>CARCAMO MATIAS</capitan>
+<capitantelefono>221-5050051</capitantelefono>
+<subcapitan>PABLO AGUILERA</subcapitan>
+<subcapitantelefono>221-4348337</subcapitantelefono>
+<subcapitanemail>pablo_85333@hotmail.com</subcapitanemail>
+<id>3</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>64</Id1>
+<NombreEquipo>BARRACAS CENTRAL</NombreEquipo>
+<capitan>JUAN MANUEL RODO</capitan>
+<capitantelefono>221-599 6226</capitantelefono>
+<subcapitan>JUAN PABLO CASTELLI</subcapitan>
+<subcapitantelefono>221-5564371</subcapitantelefono>
+<id>4</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>65</Id1>
+<NombreEquipo>BELL PIZZA FC</NombreEquipo>
+<capitan>JUAN PABLO AGUIRRE</capitan>
+<capitantelefono>221-637-0029</capitantelefono>
+<capitanfacebook>JUAN PABLO AGUIRRE</capitanfacebook>
+<subcapitan>LEONARDO GERMAN MARTINEZ</subcapitan>
+<subcapitantelefono>221-418-3431</subcapitantelefono>
+<subcapitanfacebook>GERMAN MARTINEZ</subcapitanfacebook>
+<id>5</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>66</Id1>
+<NombreEquipo>BRANCA PASION</NombreEquipo>
+<capitan>FLORICICH FRANCO</capitan>
+<capitantelefono>221-589-1173</capitantelefono>
+<capitanemail>francofloricich@outlook.com</capitanemail>
+<capitanfacebook>francofloricich</capitanfacebook>
+<subcapitan>COSTA CRISTIAN</subcapitan>
+<subcapitantelefono>221-488-3765</subcapitantelefono>
+<subcapitanemail>cristiancosta@outlook.com</subcapitanemail>
+<subcapitanfacebook>cristiancosta</subcapitanfacebook>
+<id>6</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>67</Id1>
+<NombreEquipo>CLUB ATLETICO BARRIO JARDIN</NombreEquipo>
+<capitan>FERNANDEZ JOAQUIN</capitan>
+<capitantelefono>221 455 5767</capitantelefono>
+<capitanemail>JOAQUIN.10F@GMAIL.COM</capitanemail>
+<capitanfacebook>JOAQUIN FERNANDEZ</capitanfacebook>
+<subcapitan>OGUIZA NEHUEN</subcapitan>
+<subcapitantelefono>221 317 7844</subcapitantelefono>
+<subcapitanemail>nehu.lp-@hotmail.com</subcapitanemail>
+<subcapitanfacebook>NEHUEN OGUIZA</subcapitanfacebook>
+<id>7</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>68</Id1>
+<NombreEquipo>CANNABIS FC</NombreEquipo>
+<capitan>MARIANO LUCERO</capitan>
+<capitantelefono>221-585-9726</capitantelefono>
+<capitanemail>marianolucero77@hotmail.com</capitanemail>
+<capitanfacebook>MARIANO LUCERO</capitanfacebook>
+<subcapitan>EMANUEL VILLALBA</subcapitan>
+<subcapitantelefono>221-408-9121</subcapitantelefono>
+<subcapitanfacebook>EMMAVILLALBA</subcapitanfacebook>
+<id>8</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>69</Id1>
+<NombreEquipo>CAULP</NombreEquipo>
+<capitan>SANTIAGO LOREA</capitan>
+<capitantelefono>221-523-3717</capitantelefono>
+<subcapitan>FEDERICO CANOVA</subcapitan>
+<subcapitantelefono>221-400-9846</subcapitantelefono>
+<id>9</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>70</Id1>
+<NombreEquipo>CERVECEROS</NombreEquipo>
+<capitan>ALEXIS DIAZ</capitan>
+<capitantelefono>221-6426784</capitantelefono>
+<subcapitan>CARLOS CANEVA</subcapitan>
+<subcapitantelefono>221-6692252</subcapitantelefono>
+<id>10</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>71</Id1>
+<NombreEquipo>CITY BELL FC</NombreEquipo>
+<capitan>DAVID FRANCO</capitan>
+<capitantelefono>221-6393306</capitantelefono>
+<capitanfacebook>Franco David</capitanfacebook>
+<id>11</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>72</Id1>
+<NombreEquipo>DEFENSORES DE AEROPUERTO</NombreEquipo>
+<capitan>SEBASTIAN LOZANO</capitan>
+<capitantelefono>221-6406985</capitantelefono>
+<subcapitan>COLMAN ARIEL</subcapitan>
+<id>12</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>73</Id1>
+<NombreEquipo>EL PALOMAR</NombreEquipo>
+<capitan>CEPEDA GONZALO</capitan>
+<capitantelefono>221-4282111</capitantelefono>
+<capitanemail>221-5048312</capitanemail>
+<capitanfacebook>Matias Mastrovito</capitanfacebook>
+<subcapitan>VICTOR OTAMENDI</subcapitan>
+<subcapitantelefono>221-565-1943</subcapitantelefono>
+<subcapitanemail>221-6549353</subcapitanemail>
+<subcapitanfacebook>Emanuel Cepeda</subcapitanfacebook>
+<id>13</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>74</Id1>
+<NombreEquipo>EL REJUNTE</NombreEquipo>
+<capitan>POZA ADRIAN</capitan>
+<capitantelefono>221-15-5013971</capitantelefono>
+<capitanemail>adriancap_er05@yahoo.com.ar</capitanemail>
+<subcapitan>MILLAN ALBERTO</subcapitan>
+<subcapitantelefono>221-15-5703646</subcapitantelefono>
+<id>14</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>75</Id1>
+<NombreEquipo>ETIQUETA NEGRA</NombreEquipo>
+<capitan>LUIS CABALLERO</capitan>
+<capitantelefono>221-6388903</capitantelefono>
+<subcapitan>FEDERICO CABALLERO</subcapitan>
+<subcapitantelefono>221-4957933</subcapitantelefono>
+<id>15</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>76</Id1>
+<NombreEquipo>GUERREROS Z</NombreEquipo>
+<capitan>CARRIZO WALTER</capitan>
+<subcapitan>IVAN WAISK</subcapitan>
+<subcapitantelefono>221-5772703</subcapitantelefono>
+<subcapitanemail>221-6068095</subcapitanemail>
+<subcapitanfacebook>DANIEL MARTINEZ</subcapitanfacebook>
+<id>16</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>77</Id1>
+<NombreEquipo>LA 36</NombreEquipo>
+<capitan>SEBASTIAN CLAVERI</capitan>
+<capitantelefono>221-4008174</capitantelefono>
+<capitanemail>SCLAVERI@YAHOO.COM.AR</capitanemail>
+<subcapitan>CLAUDIO ODOGUARDI</subcapitan>
+<subcapitantelefono>221-4886688</subcapitantelefono>
+<id>17</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>78</Id1>
+<NombreEquipo>LEYENDAS</NombreEquipo>
+<capitan>AQUINO SANTIAGO</capitan>
+<capitantelefono>221-476-2669</capitantelefono>
+<capitanemail>Sonich_arcr@hotmail.com</capitanemail>
+<capitanfacebook>SANTIAGO AQUINO</capitanfacebook>
+<subcapitan>ANDRADA VALENTIN</subcapitan>
+<subcapitantelefono>4867081</subcapitantelefono>
+<subcapitanemail>ABANDONGAMER4LIFE@FACEBOOK.COM</subcapitanemail>
+<subcapitanfacebook>VALENTIN ANDRADA</subcapitanfacebook>
+<id>18</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>79</Id1>
+<NombreEquipo>LOS CARPIN</NombreEquipo>
+<capitan>SANCHEZ ADRIAN</capitan>
+<capitantelefono>221-3041496</capitantelefono>
+<subcapitan>GOTELLI LEONARDO</subcapitan>
+<id>19</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>80</Id1>
+<NombreEquipo>LOS DINOS</NombreEquipo>
+<capitan>QUINTEROS MARTIN</capitan>
+<capitantelefono>221-6138299</capitantelefono>
+<subcapitan>CLAUDIO</subcapitan>
+<subcapitantelefono>221-4006222</subcapitantelefono>
+<subcapitanemail> clau_pincha_rata@hotmail.como</subcapitanemail>
+<subcapitanfacebook>naanoo EdeLp</subcapitanfacebook>
+<id>20</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>81</Id1>
+<NombreEquipo>LOS HALCONES</NombreEquipo>
+<capitan>DANIEL BAEZ</capitan>
+<capitantelefono>2223-674643</capitantelefono>
+<capitanemail>4868267</capitanemail>
+<subcapitan>MARIO LEIVA</subcapitan>
+<subcapitantelefono>221-5241903</subcapitantelefono>
+<id>21</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>82</Id1>
+<NombreEquipo>LOS LEPROSOS</NombreEquipo>
+<capitan>FEDERICO AGUSTIN</capitan>
+<capitantelefono>221-6214624</capitantelefono>
+<subcapitan>PABLO</subcapitan>
+<subcapitantelefono>221-5042071</subcapitantelefono>
+<subcapitanemail>221-5927499</subcapitanemail>
+<subcapitanfacebook>JUAN</subcapitanfacebook>
+<id>22</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>83</Id1>
+<NombreEquipo>LOS PIOJOSOS</NombreEquipo>
+<capitan>EZEQUIEL MORELLI</capitan>
+<capitantelefono>221-6700930</capitantelefono>
+<subcapitan>JAVIER MORELLI</subcapitan>
+<subcapitantelefono>221-6701110</subcapitantelefono>
+<id>23</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>84</Id1>
+<NombreEquipo>LOS TERRY´S</NombreEquipo>
+<capitan>LEO</capitan>
+<capitantelefono>221-592-0106</capitantelefono>
+<capitanemail>LEOSANCHEZORTIZ@HOTMAIL.COM</capitanemail>
+<capitanfacebook>LEO SANCHEZ ORTIZ</capitanfacebook>
+<subcapitan>CLAUDIO</subcapitan>
+<subcapitantelefono>221-591-3897</subcapitantelefono>
+<subcapitanfacebook>CLAUDITO VEGA</subcapitanfacebook>
+<id>24</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>85</Id1>
+<NombreEquipo>MERENGUE FC</NombreEquipo>
+<capitan>RAMIREZ VICTOR</capitan>
+<capitantelefono>15-476-1759</capitantelefono>
+<subcapitan>OVIEDO AGUSTIN</subcapitan>
+<subcapitantelefono>15-564-6577</subcapitantelefono>
+<subcapitanemail>agus_pincha@hotmail.com</subcapitanemail>
+<id>25</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>86</Id1>
+<NombreEquipo>QUILMES</NombreEquipo>
+<capitan>CRISTIAN NUÑEZ</capitan>
+<capitantelefono>221-6555383</capitantelefono>
+<subcapitan>JORGE NUÑEZ</subcapitan>
+<subcapitantelefono>221-4950916</subcapitantelefono>
+<subcapitanemail>221-6168310</subcapitanemail>
+<subcapitanfacebook>Javier Sotelo</subcapitanfacebook>
+<id>26</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>87</Id1>
+<NombreEquipo>RED BULL</NombreEquipo>
+<capitan>SEBASTIAN GARCIA</capitan>
+<capitantelefono>221-6324300</capitantelefono>
+<capitanfacebook>sebastian garcia</capitanfacebook>
+<subcapitan>ANGEL GARCIA</subcapitan>
+<subcapitantelefono>221-5686902</subcapitantelefono>
+<subcapitanfacebook>angel garcia</subcapitanfacebook>
+<id>27</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>88</Id1>
+<NombreEquipo>RESISTENCIA FC</NombreEquipo>
+<capitan>MATIAS RAMIREZ</capitan>
+<capitantelefono>221-3169778</capitantelefono>
+<capitanemail>matias85_ram@hotmail.com</capitanemail>
+<subcapitan>ANGEL NAVARRO</subcapitan>
+<subcapitantelefono>221-4950866</subcapitantelefono>
+<id>28</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>89</Id1>
+<NombreEquipo>RUSTICO Y FILOSO</NombreEquipo>
+<capitan>EDGARDO MALDONADO</capitan>
+<capitantelefono>221-5388373</capitantelefono>
+<subcapitan>EMA BERON</subcapitan>
+<subcapitantelefono>221-6031209</subcapitantelefono>
+<id>29</id>
+</LstJugadores1>
+<LstJugadores1>
+<Id1>90</Id1>
+<NombreEquipo>VAYADORMIR FC</NombreEquipo>
+<capitan>AUBERT JUAN MANUEL</capitan>
+<capitantelefono>2215432204</capitantelefono>
+<capitanemail>Kamus_Juan@hotmail.com</capitanemail>
+<capitanfacebook>Aubert Juan Manuel</capitanfacebook>
+<subcapitan>JAUREGUI VERLIAC EMMANUEL</subcapitan>
+<subcapitantelefono>2215422591</subcapitantelefono>
+<subcapitanemail>emma_jaureguiverliac@hotmail.com</subcapitanemail>
+<subcapitanfacebook>Jauregui Verliac Emmanuel</subcapitanfacebook>
+<id>30</id>
+</LstJugadores1>
+</dataroot>
