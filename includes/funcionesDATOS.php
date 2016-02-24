@@ -266,7 +266,7 @@ class ServiciosDatos {
 		       sum(r.resultado_a) as golesafavor,
 		       sum(r.resultado_b) as golesencontra,
 		       (sum(r.resultado_a) - sum(r.resultado_b)) as diferencia,
-		       ((sum(case when r.resultado_a > r.resultado_b then 1 else 0 end) * 3) +
+		       ((sum(case when r.resultado_a > r.resultado_b then 1 else 0 end) * 2) +
 		        (sum(case when r.resultado_a = r.resultado_b then 1 else 0 end) * 1)) as pts,
 		        r.idequipo,
 				fp.puntos,
@@ -1659,7 +1659,7 @@ left join dbreemplazo rrr on rrr.refequipo = e.idequipo and rrr.reffecha <= ".$i
 					dbjugadores j ON j.idjugador = a.refjugador
 				where d.reffecha <= ".$reffecha."
 				group by a.refjugador , a.refequipo , e.nombre , j.apellido , j.nombre , j.dni
-				order by sum(COALESCE(a.puntos, 0)) desc";
+				order by sum(COALESCE(a.puntos, 0)) desc, e.nombre,j.apellido , j.nombre";
 		return $this-> query($sql,0);		
 	}
 	function query($sql,$accion) {
