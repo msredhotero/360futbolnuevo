@@ -12,32 +12,43 @@ if (!isset($_SESSION['usua_predio']))
 include ('../../includes/funciones.php');
 include ('../../includes/funcionesUsuarios.php');
 include ('../../includes/funcionesHTML.php');
-include ('../../includes/funcionesEquipos.php');
+include ('../../includes/funcionesGrupos.php');
+include ('../../includes/funcionesDATOS.php');
 
 $serviciosFunciones = new Servicios();
 $serviciosUsuario 	= new ServiciosUsuarios();
 $serviciosHTML 		= new ServiciosHTML();
-$serviciosEquipos 	= new ServiciosE();
+$serviciosGrupos 	= new ServiciosG();
+$serviciosDatos		= new ServiciosDatos();
 
 $fecha = date('Y-m-d');
 
-//$resProductos = $serviciosProductos->traerProductosLimite(6);
-$resMenu = $serviciosHTML->menu($_SESSION['nombre_predio'],"Sedes",$_SESSION['refroll_predio'],$_SESSION['torneo_predio']);
+$resMenu = $serviciosHTML->menu(($_SESSION['nombre_predio']),"Zonas",$_SESSION['refroll_predio'],($_SESSION['torneo_predio']));
 
 
-$id = $_GET['id'];
+/////////////////////// Opciones de la pagina  ////////////////////
 
-$resResultado = $serviciosFunciones->traerSedesPorId($id);
+$id	= $_GET['id'];
+
+$resResultado = $serviciosGrupos->TraerIdGrupos($id);
+
+$lblTitulosingular	= "Categoria";
+$lblTituloplural	= "Categorias";
+
+/////////////////////// Fin de las opciones /////////////////////
+
 
 /////////////////////// Opciones para la creacion del formulario  /////////////////////
-$tabla 			= "tbsedes";
+$tabla 			= "dbgrupos";
 
-$lblCambio	 	= array("direccion");
-$lblreemplazo	= array("Direcci髇");
+$lblCambio	 	= array("");
+$lblreemplazo	= array("");
+
+$resTipoTorneo 	= '';
 
 $cadRef = '';
 
-$refdescripcion = array(0 => "");
+$refdescripcion = array(0 => $cadRef);
 $refCampo[] 	= ""; 
 //////////////////////////////////////////////  FIN de los opciones //////////////////////////
 
@@ -45,16 +56,14 @@ $refCampo[] 	= "";
 
 
 /////////////////////// Opciones para la creacion del view  /////////////////////
-$cabeceras 		= "	<th>Nombre</th>
-				<th>Direcci髇</th>";
+$cabeceras 		= "	<th>Nombre</th>";
 
 //////////////////////////////////////////////  FIN de los opciones //////////////////////////
 
 
 
 
-$formulario 	= $serviciosFunciones->camposTablaModificar($id, "idsede", "modificarSedes",$tabla,$lblCambio,$lblreemplazo,$refdescripcion,$refCampo);
-
+$formulario 	= $serviciosFunciones->camposTablaModificar($id, "idgrupo", "modificarGrupos",$tabla,$lblCambio,$lblreemplazo,$refdescripcion,$refCampo);
 
 if ($_SESSION['refroll_predio'] != 1) {
 
@@ -71,13 +80,13 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
 
-<title>Gesti&oacute;n: Tres Sesenta F&uacute;tbol</title>
+<title>Gesti贸n: Tres Sesenta F煤tbol</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -117,26 +126,26 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 <body>
 
- <?php echo $resMenu; ?>
+ 
+<?php echo $resMenu; ?>
 
 <div id="content">
 
-<h3>Equipos</h3>
+<h3><?php echo $lblTituloplural; ?></h3>
 
     <div class="boxInfoLargo">
         <div id="headBoxInfo">
-        	<p style="color: #fff; font-size:18px; height:16px;">Modificar de Sedes</p>
+        	<p style="color: #fff; font-size:18px; height:16px;">Cargar <?php echo $lblTituloplural; ?></p>
         	
         </div>
     	<div class="cuerpoBox">
-        	<form class="form-inline formulario" role="form">
         	
-			<div class="row">
+            
+    		<form class="form-inline formulario" role="form">
+        	<div class="row">
 			<?php echo $formulario; ?>
             </div>
-            
-            
-            <div class='row' style="margin-left:25px; margin-right:25px;">
+            <div class='row'>
                 <div class='alert'>
                 
                 </div>
@@ -144,7 +153,6 @@ if ($_SESSION['refroll_predio'] != 1) {
                 
                 </div>
             </div>
-            
             <div class="row">
                 <div class="col-md-12">
                 <ul class="list-inline" style="margin-top:15px;">
@@ -164,6 +172,17 @@ if ($_SESSION['refroll_predio'] != 1) {
     	</div>
     </div>
     
+    <div class="boxInfoLargo">
+        <div id="headBoxInfo">
+        	<p style="color: #fff; font-size:18px; height:16px;"><?php echo $lblTituloplural; ?> Cargados</p>
+        	
+        </div>
+    	<div class="cuerpoBox">
+        	<?php echo $lstCargados; ?>
+    	</div>
+    </div>
+
+    
     
    
 </div>
@@ -171,21 +190,20 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 </div>
 
-<div id="dialog2" title="Eliminar Equipos">
+<div id="dialog2" title="Eliminar <?php echo $lblTitulosingular; ?>">
     	<p>
         	<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
-            縀sta seguro que desea eliminar el equipo?.<span id="proveedorEli"></span>
+            驴Esta seguro que desea eliminar el <?php echo $lblTitulosingular; ?>?.<span id="proveedorEli"></span>
         </p>
-        <p><strong>Importante: </strong>Si elimina el equipo se perderan todos los datos de este</p>
+        <p><strong>Importante: </strong>Perdera Informaci贸n relacionada con esta Categoria</p>
         <input type="hidden" value="" id="idEliminar" name="idEliminar">
 </div>
-<script type="text/javascript" src="../../js/jquery.dataTables.min.js"></script>
-<script src="../../bootstrap/js/dataTables.bootstrap.js"></script>
+
 
 <script type="text/javascript">
 $(document).ready(function(){
-
-	$('.volver').click(function(event){
+	
+	 $('.volver').click(function(event){
 		 
 		url = "index.php";
 		$(location).attr('href',url);
@@ -201,7 +219,7 @@ $(document).ready(function(){
 			//url = "../clienteseleccionado/index.php?idcliente=" + usersid;
 			//$(location).attr('href',url);
 		  } else {
-			alert("Error, vuelva a realizar la acci髇.");	
+			alert("Error, vuelva a realizar la acci贸n.");	
 		  }
 	});//fin del boton eliminar
 
@@ -216,7 +234,7 @@ $(document).ready(function(){
 				    "Eliminar": function() {
 	
 						$.ajax({
-									data:  {id: $('#idEliminar').val(), accion: 'eliminarSedes'},
+									data:  {id: $('#idEliminar').val(), accion: 'eliminarGrupos'},
 									url:   '../../ajax/ajax.php',
 									type:  'post',
 									beforeSend: function () {
@@ -257,10 +275,10 @@ $(document).ready(function(){
 		
 		if (validador() == "")
         {
-			//informaci髇 del formulario
+			//informaci贸n del formulario
 			var formData = new FormData($(".formulario")[0]);
 			var message = "";
-			//hacemos la petici髇 ajax  
+			//hacemos la petici贸n ajax  
 			$.ajax({
 				url: '../../ajax/ajax.php',  
 				type: 'POST',
@@ -282,11 +300,11 @@ $(document).ready(function(){
                                             $(".alert").removeClass("alert-danger");
 											$(".alert").removeClass("alert-info");
                                             $(".alert").addClass("alert-success");
-                                            $(".alert").html('<strong>Ok!</strong> Se modifico exitosamente el <strong>Equipo</strong>. ');
+                                            $(".alert").html('<strong>Ok!</strong> Se modifico exitosamente la <strong>Categoria</strong>. ');
 											$(".alert").delay(3000).queue(function(){
 												/*aca lo que quiero hacer 
-												  despu閟 de los 2 segundos de retraso*/
-												$(this).dequeue(); //contin鷒 con el siguiente 韙em en la cola
+												  despu茅s de los 2 segundos de retraso*/
+												$(this).dequeue(); //contin煤o con el siguiente 铆tem en la cola
 												
 											});
 											$("#load").html('');
@@ -309,6 +327,7 @@ $(document).ready(function(){
 			});
 		}
     });
+	
 
 });
 </script>

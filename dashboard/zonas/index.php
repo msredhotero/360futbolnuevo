@@ -23,7 +23,7 @@ $serviciosDatos		= new ServiciosDatos();
 
 $fecha = date('Y-m-d');
 
-$resMenu = $serviciosHTML->menu(utf8_encode($_SESSION['nombre_predio']),"Zonas",$_SESSION['refroll_predio'],utf8_encode($_SESSION['torneo_predio']));
+$resMenu = $serviciosHTML->menu(($_SESSION['nombre_predio']),"Zonas",$_SESSION['refroll_predio'],($_SESSION['torneo_predio']));
 
 
 /////////////////////// Opciones de la pagina  ////////////////////
@@ -190,24 +190,70 @@ if ($_SESSION['refroll_predio'] != 1) {
 
 </div>
 
-
+<div id="dialog2" title="Eliminar <?php echo $lblTitulosingular; ?>">
+    	<p>
+        	<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
+            ¿Esta seguro que desea eliminar el <?php echo $lblTitulosingular; ?>?.<span id="proveedorEli"></span>
+        </p>
+        <p><strong>Importante: </strong>Perdera Información relacionada con esta Categoria</p>
+        <input type="hidden" value="" id="idEliminar" name="idEliminar">
+</div>
 
 
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	 $( '#dialogDetalle' ).dialog({
-		autoOpen: false,
-		resizable: false,
-		width:800,
-		height:740,
-		modal: true,
-		buttons: {
-			"Ok": function() {
-				$( this ).dialog( "close" );
-			}
-		}
-	});
+	 $('.varborrar').click(function(event){
+		  usersid =  $(this).attr("id");
+		  if (!isNaN(usersid)) {
+			$("#idEliminar").val(usersid);
+			$("#dialog2").dialog("open");
+
+			
+			//url = "../clienteseleccionado/index.php?idcliente=" + usersid;
+			//$(location).attr('href',url);
+		  } else {
+			alert("Error, vuelva a realizar la acción.");	
+		  }
+	});//fin del boton eliminar
+
+	 $( "#dialog2" ).dialog({
+		 	
+			    autoOpen: false,
+			 	resizable: false,
+				width:600,
+				height:240,
+				modal: true,
+				buttons: {
+				    "Eliminar": function() {
+	
+						$.ajax({
+									data:  {id: $('#idEliminar').val(), accion: 'eliminarGrupos'},
+									url:   '../../ajax/ajax.php',
+									type:  'post',
+									beforeSend: function () {
+											
+									},
+									success:  function (response) {
+											url = "index.php";
+											$(location).attr('href',url);
+											
+									}
+							});
+						$( this ).dialog( "close" );
+						$( this ).dialog( "close" );
+							$('html, body').animate({
+	           					scrollTop: '1000px'
+	       					},
+	       					1500);
+				    },
+				    Cancelar: function() {
+						$( this ).dialog( "close" );
+				    }
+				}
+		 
+		 
+	 		}); //fin del dialogo para eliminar
 
 	 <?php 
 		echo $serviciosHTML->validacion($tabla);

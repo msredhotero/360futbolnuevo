@@ -113,13 +113,13 @@ $resZonasTorneos = $serviciosDatos->traerZonasPorTorneo($_SESSION['idtorneo_pred
 
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 
 
-<title>Gesti&oacute;n: Tres Sesenta F&uacute;tbol</title>
+<title>GestiÃ³n: Tres Sesenta FÃºtbol</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -237,7 +237,7 @@ $resZonasTorneos = $serviciosDatos->traerZonasPorTorneo($_SESSION['idtorneo_pred
 <div id="dialog2" title="Eliminar Fixture">
     	<p>
         	<span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
-            ¿Esta seguro que desea eliminar el fixture?.<span id="proveedorEli"></span>
+            Â¿Esta seguro que desea eliminar el fixture?.<span id="proveedorEli"></span>
         </p>
         <p><strong>Importante: </strong>Si elimina el fixture se perderan todos los datos de este</p>
         <input type="hidden" value="" id="idEliminar" name="idEliminar">
@@ -286,7 +286,7 @@ $(document).ready(function(){
 			//url = "../clienteseleccionado/index.php?idcliente=" + usersid;
 			//$(location).attr('href',url);
 		  } else {
-			alert("Error, vuelva a realizar la acción.");	
+			alert("Error, vuelva a realizar la acciÃ³n.");	
 		  }
 	});//fin del boton eliminar
 	
@@ -301,7 +301,7 @@ $(document).ready(function(){
 			//url = "../clienteseleccionado/index.php?idcliente=" + usersid;
 			//$(location).attr('href',url);
 		  } else {
-			alert("Error, vuelva a realizar la acción.");	
+			alert("Error, vuelva a realizar la acciÃ³n.");	
 		  }
 	});//fin del boton estadisticas
 	
@@ -313,7 +313,7 @@ $(document).ready(function(){
 			url = "modificar.php?id=" + usersid;
 			$(location).attr('href',url);
 		  } else {
-			alert("Error, vuelva a realizar la acción.");	
+			alert("Error, vuelva a realizar la acciÃ³n.");	
 		  }
 	});//fin del boton modificar
 
@@ -361,10 +361,10 @@ $(document).ready(function(){
 		
 		if (validador() == "")
         {
-			//información del formulario
+			//informaciÃ³n del formulario
 			var formData = new FormData($(".formulario")[0]);
 			var message = "";
-			//hacemos la petición ajax  
+			//hacemos la peticiÃ³n ajax  
 			$.ajax({
 				url: '../../ajax/ajax.php',  
 				type: 'POST',
@@ -389,8 +389,8 @@ $(document).ready(function(){
                                             $(".alert").html('<strong>Ok!</strong> Se cargo exitosamente el <strong>Fixture</strong>. ');
 											$(".alert").delay(3000).queue(function(){
 												/*aca lo que quiero hacer 
-												  después de los 2 segundos de retraso*/
-												$(this).dequeue(); //continúo con el siguiente ítem en la cola
+												  despuÃ©s de los 2 segundos de retraso*/
+												$(this).dequeue(); //continÃºo con el siguiente Ã­tem en la cola
 												
 											});
 											$("#load").html('');

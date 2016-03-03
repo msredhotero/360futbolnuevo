@@ -10,7 +10,7 @@ date_default_timezone_set('America/Buenos_Aires');
 class ServiciosG {
 	
 	function TraerGrupos() {
-		$sql = "select * from dbgrupos order by idgrupo limit 5";
+		$sql = "select * from dbgrupos order by idgrupo";
 		return $this-> query($sql,0);
 	}
 	
@@ -32,9 +32,19 @@ class ServiciosG {
 	
 	function insertarGrupos($letra) {
 
-		$sql = "insert into dbgrupos (idgrupo,nombre) values ('','".$letra."')";
+		$sql = "insert into dbgrupos (idgrupo,nombre) values ('','".utf8_decode($letra)."')";
 		$res = $this->query($sql,1);
 		return $res;
+	}
+	
+	function modificarGrupos($id,$letra) {
+		$sql = "update dbgrupos set nombre = '".utf8_decode($letra)."' where idgrupo=".$id;
+		return $this-> query($sql,0);
+	}
+	
+	function eliminarGrupos($id) {
+		$sql = "delete from dbgrupos where idgrupo=".$id;	
+		return $this-> query($sql,0);
 	}
 	
 	

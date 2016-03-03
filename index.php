@@ -1,6 +1,7 @@
 <?php
 
-
+session_start();
+session_destroy();
 //echo php_uname('n');
 /*
 //$conex = mysql_connect("localhost","programador@estudiohamelin.com.ar","pro980") or die ("no se puede conectar".mysql_error());

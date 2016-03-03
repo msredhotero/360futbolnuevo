@@ -105,7 +105,7 @@ $goleadores7c = $serviciosFUNC->Amarillas(3,21);
 
 
 
-<title>Gesti&oacute;n: Predio 98</title>
+<title>Gesti&oacute;n: Tres Sesenta Fútbol</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 

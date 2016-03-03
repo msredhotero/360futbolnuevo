@@ -104,7 +104,7 @@ $resTipoTorneos = $serviciosFunciones->traerTipoTorneo();
                     		<?php
 								while ($row = mysql_fetch_array($resTipoTorneos)) {
 							?>
-                            		<option value="<?php echo $row[0]; ?>"><?php echo utf8_encode($row[1]); ?></option>
+                            		<option value="<?php echo $row[0]; ?>"><?php echo ($row[1]); ?></option>
                             <?php	
 								}
 							?>

@@ -2392,11 +2392,14 @@ function eliminarSuspendidos($serviciosSuspendidos) {
 function insertarGrupo($serviciosGrupos) {
 $Nombre = $_POST['nombre'];
 $res = $serviciosGrupos->insertarGrupos($Nombre);
+
+
 if ((integer)$res > 0) {
 echo '';
 } else {
 echo 'Huvo un error al insertar datos';
 }
+
 }
 function modificarGrupos($serviciosGrupos) {
 	$id = $_POST['id'];

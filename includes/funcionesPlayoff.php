@@ -183,7 +183,7 @@ $sql = "select
 		from
 			tbplayoff p
 				inner join
-			dbplayoff pp ON p.refplayoffequipo_a = pp.idplayoff
+			dbplayoff pp ON p.refplayoffequipo_a = pp.idplayoff and p.refzona = pp.refzona
 				inner join
 			dbtorneos t ON t.idtorneo = pp.reftorneo
 				inner join

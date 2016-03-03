@@ -390,7 +390,7 @@ class ServiciosZonasEquipos {
 					        join dbgrupos g
 					        on g.idgrupo = tge.refgrupo
 							
-							where tp.descripciontorneo = '".$_SESSION['torneo_predio']."'
+							where tp.idtipotorneo = ".$_SESSION['idtorneo_predio']."
 							
 					 order by g.nombre,f.tipofecha,fi.hora";
 		 return $this-> query($sql,0);
@@ -490,7 +490,7 @@ class ServiciosZonasEquipos {
 					        join dbgrupos g
 					        on g.idgrupo = tge.refgrupo
 							
-							where tp.descripciontorneo = '".$_SESSION['torneo_predio']."' and fi.chequeado = 0
+							where tp.idtipotorneo = ".$_SESSION['idtorneo_predio']." and fi.chequeado = 0
 							
 					 order by g.nombre,f.tipofecha,fi.hora";
 		 return $this-> query($sql,0);
@@ -801,7 +801,7 @@ class ServiciosZonasEquipos {
 			inner
 							join		tbtipotorneo tp
 							on			tp.idtipotorneo = t.reftipotorneo
-			where tp.descripciontorneo = '".$_SESSION['torneo_predio']."' and t.activo = 1 and tge.refgrupo = ".$idzona."
+			where tp.idtipotorneo = ".$_SESSION['idtorneo_predio']." and t.activo = 1 and tge.refgrupo = ".$idzona."
 			order by g.nombre, e.nombre";
 		return $this->query($sql,0);
 	}
